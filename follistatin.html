@@ -18,81 +18,67 @@
       background: #111827;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-    }
-
-    header p {
-      color: #aaa;
-    }
-
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
       padding: 20px;
     }
 
     .gallery img {
       width: 100%;
-      border-radius: 12px;
-      transition: 0.3s;
-      cursor: pointer;
-      background: #111;
-      min-height: 150px;
+      border-radius: 10px;
+      background: #1f2937;
+      min-height: 120px;
       object-fit: cover;
+      display: block;
     }
 
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    .info {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
+    .error-box {
+      text-align: center;
+      color: #ff4d4d;
+      padding: 10px;
+      font-size: 14px;
     }
 
     footer {
       text-align: center;
       padding: 20px;
       background: #111827;
-      margin-top: 30px;
       color: #aaa;
     }
   </style>
-
 </head>
 
 <body>
 
 <header>
   <h1>Follistatin</h1>
-  <p>Research Use Only - Biotechnology Protein</p>
+  <p>Research Use Only</p>
 </header>
 
 <section class="gallery">
 
-  <img src="images/follistatin/front.png" onerror="this.style.display='none'">
-  <img src="images/follistatin/back.png" onerror="this.style.display='none'">
-  <img src="images/follistatin/front-side.png" onerror="this.style.display='none'">
-  <img src="images/follistatin/side-back.png" onerror="this.style.display='none'">
-  <img src="images/follistatin/unbox.png" onerror="this.style.display='none'">
+  <img src="images/follistatin/front.png"
+       onerror="this.style.display='none'">
+
+  <img src="images/follistatin/back.png"
+       onerror="this.style.display='none'">
+
+  <img src="images/follistatin/front-side.png"
+       onerror="this.style.display='none'">
+
+  <img src="images/follistatin/side-back.png"
+       onerror="this.style.display='none'">
+
+  <img src="images/follistatin/unbox.png"
+       onerror="this.style.display='none'">
 
 </section>
 
-<section class="info">
-
-  <h2>About Follistatin</h2>
-
-  <p>
-    Follistatin is a research-grade protein involved in regulation of muscle growth pathways.
-    This compound is strictly for laboratory research use only.
-  </p>
-
-</section>
+<div class="error-box">
+  اگر عکس‌ها نمایش داده نمی‌شوند → مشکل از نام فایل یا پسوند (.png) است
+</div>
 
 <footer>
   Contact: bluerexall@gmail.com
