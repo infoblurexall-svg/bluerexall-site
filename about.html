@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Bluerexall</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #eef4ff, #f8fbff);
+      color: #1b2b45;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
+      padding: 24px 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #fff;
+      font-weight: 500;
+      opacity: 0.95;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #cfe8ff;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      background: linear-gradient(135deg, #0d3b66 0%, #1d6fb8 100%);
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: auto;
+      font-size: 1.08rem;
+      opacity: 0.95;
+    }
+
+    .about-section {
+      padding: 80px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      color: #0d3b66;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      margin-bottom: 18px;
+      color: #33415c;
+      font-size: 1rem;
+    }
+
+    .about-card {
+      background: #fff;
+      padding: 35px 28px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(13, 59, 102, 0.08);
+      border: 1px solid rgba(13, 59, 102, 0.08);
+    }
+
+    .about-card h3 {
+      color: #0d3b66;
+      margin-bottom: 18px;
+      font-size: 1.4rem;
+    }
+
+    .info-item {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e8eef7;
+    }
+
+    .info-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .info-item strong {
+      display: block;
+      color: #0d3b66;
+      margin-bottom: 5px;
+    }
+
+    .features {
+      padding: 20px 0 80px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: #0d3b66;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #5b6b84;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .feature-box {
+      background: #fff;
+      padding: 30px 24px;
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(13, 59, 102, 0.07);
+      transition: 0.3s ease;
+      border: 1px solid rgba(13, 59, 102, 0.06);
+    }
+
+    .feature-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 34px rgba(13, 59, 102, 0.12);
+    }
+
+    .feature-box h3 {
+      color: #0d3b66;
+      margin-bottom: 14px;
+      font-size: 1.2rem;
+    }
+
+    .feature-box p {
+      color: #4e5d78;
+      font-size: 0.97rem;
+    }
+
+    .cta {
+      padding: 70px 0;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
+      text-align: center;
+      padding: 55px 30px;
+      border-radius: 24px;
+      box-shadow: 0 18px 40px rgba(13, 59, 102, 0.16);
+    }
+
+    .cta-box h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .cta-box p {
+      max-width: 760px;
+      margin: 0 auto 24px;
+      opacity: 0.94;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: #0d3b66;
+      padding: 14px 26px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      background: #eaf4ff;
+    }
+
+    footer {
+      background: #0b2744;
+      color: #dce8f7;
+      text-align: center;
+      padding: 28px 15px;
+      margin-top: 70px;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 70px 0 50px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .about-text h2,
+      .section-title h2,
+      .cta-box h2 {
+        font-size: 1.6rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">Bluerexall</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>About Bluerexall</h1>
+      <p>
+        Advanced peptide research compounds with a strong commitment to purity, precision, and scientific excellence.
+      </p>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="container about-grid">
+      <div class="about-text">
+        <h2>Driven by Research, Defined by Quality</h2>
+        <p>
+          Bluerexall is a biotechnology company specializing in advanced peptide research compounds and high-purity research-use-only products. Our focus is centered on delivering reliable materials that support scientific exploration and research development.
+        </p>
+        <p>
+          With 15 years of active experience in Australia, we have built our reputation on consistency, product integrity, and a strong dedication to quality. We understand the importance of precision in research environments and work to meet high expectations across every stage of production.
+        </p>
+        <p>
+          Our company is committed to maintaining strict quality standards while continuously improving our biotechnology processes. This approach allows us to provide compounds designed for professional research applications with dependable purity and performance.
+        </p>
+        <p>
+          At Bluerexall, we believe innovation begins with trusted materials. That is why we continue to support the scientific community with carefully developed products, responsible practices, and a long-term vision for excellence in biotechnology.
+        </p>
+        <p>
+          As we continue to grow, our mission remains clear: to provide advanced research compounds that reflect quality, innovation, and trust. Bluerexall proudly serves researchers in Australia and beyond with professionalism and purpose.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>Company Overview</h3>
+
+        <div class="info-item">
+          <strong>Specialization</strong>
+          Advanced Peptide Research Compounds
+        </div>
+
+        <div class="info-item">
+          <strong>Product Standard</strong>
+          High Purity Research-Use Only Biotechnology Products
+        </div>
+
+        <div class="info-item">
+          <strong>Experience</strong>
+          15 Years of Industry Activity
+        </div>
+
+        <div class="info-item">
+          <strong>Location</strong>
+          Australia
+        </div>
+
+        <div class="info-item">
+          <strong>Commitment</strong>
+          Purity, Reliability, and Scientific Support
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Bluerexall</h2>
+        <p>
+          Our work is built on high standards, careful development, and a strong commitment to supporting modern biotechnology research.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h3>High Purity Standards</h3>
+          <p>
+            Our compounds are developed with strong attention to consistency, purity, and research-focused quality expectations.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h3>15 Years of Experience</h3>
+          <p>
+            Our long-standing industry presence in Australia reflects stability, knowledge, and continued dedication to biotechnology excellence.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Research-Focused Approach</h3>
+          <p>
+            Every product we offer is intended for research use only and developed to support professional scientific applications.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Committed to Scientific Progress</h2>
+        <p>
+          Bluerexall continues to support the future of biotechnology by delivering advanced peptide research compounds with trusted quality and professional standards.
+        </p>
+        <a href="products.html" class="cta-btn">Explore Products</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Bluerexall. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
