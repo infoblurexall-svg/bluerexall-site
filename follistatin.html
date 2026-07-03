@@ -39,6 +39,9 @@
       border-radius: 12px;
       transition: 0.3s;
       cursor: pointer;
+      background: #111;
+      min-height: 150px;
+      object-fit: cover;
     }
 
     .gallery img:hover {
@@ -72,11 +75,11 @@
 
 <section class="gallery">
 
-  <img src="images/follistatin/front.png" alt="front">
-  <img src="images/follistatin/back.png" alt="back">
-  <img src="images/follistatin/front-side.png" alt="front side">
-  <img src="images/follistatin/side-back.png" alt="side back">
-  
+  <img src="images/follistatin/front.png" onerror="this.style.display='none'">
+  <img src="images/follistatin/back.png" onerror="this.style.display='none'">
+  <img src="images/follistatin/front-side.png" onerror="this.style.display='none'">
+  <img src="images/follistatin/side-back.png" onerror="this.style.display='none'">
+  <img src="images/follistatin/unbox.png" onerror="this.style.display='none'">
 
 </section>
 
@@ -85,8 +88,8 @@
   <h2>About Follistatin</h2>
 
   <p>
-    Follistatin is a research-grade protein that regulates myostatin activity and is studied in muscle growth and cellular biology research.
-    It is strictly for laboratory research use only and not intended for human consumption.
+    Follistatin is a research-grade protein involved in regulation of muscle growth pathways.
+    This compound is strictly for laboratory research use only.
   </p>
 
 </section>
