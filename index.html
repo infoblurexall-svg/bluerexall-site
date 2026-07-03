@@ -1,45 +1,596 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bluerexall | Biotechnology Products</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bluerexall - Advanced Peptide Research Compounds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #eef4ff, #f8fbff);
+      color: #1c2b45;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
+      padding: 22px 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s ease;
+      opacity: 0.95;
+    }
+
+    .nav-links a:hover {
+      color: #cfe8ff;
+      opacity: 1;
+    }
+
+    .hero {
+      padding: 100px 0 80px;
+      background: linear-gradient(135deg, #0d3b66 0%, #1d6fb8 100%);
+      color: #fff;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 3.3rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .hero-text p {
+      font-size: 1.08rem;
+      max-width: 650px;
+      margin-bottom: 28px;
+      opacity: 0.95;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #0d3b66;
+    }
+
+    .btn-primary:hover {
+      background: #eaf4ff;
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.16);
+      transform: translateY(-3px);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 24px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+
+    .hero-card p {
+      margin-bottom: 14px;
+      opacity: 0.95;
+    }
+
+    .hero-stat {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .stat-box {
+      background: rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .stat-box strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: #0d3b66;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      max-width: 760px;
+      margin: auto;
+      color: #5a6a84;
+    }
+
+    .about-preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .about-preview .text h2 {
+      font-size: 2rem;
+      color: #0d3b66;
+      margin-bottom: 18px;
+    }
+
+    .about-preview .text p {
+      margin-bottom: 16px;
+      color: #41506a;
+    }
+
+    .info-panel {
+      background: #fff;
+      padding: 35px;
+      border-radius: 22px;
+      box-shadow: 0 16px 36px rgba(13, 59, 102, 0.08);
+      border: 1px solid rgba(13, 59, 102, 0.07);
+    }
+
+    .info-panel .item {
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #e7eef7;
+    }
+
+    .info-panel .item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .info-panel strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #0d3b66;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-box {
+      background: #fff;
+      padding: 30px 24px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(13, 59, 102, 0.08);
+      transition: 0.3s ease;
+      border: 1px solid rgba(13, 59, 102, 0.06);
+    }
+
+    .feature-box:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 36px rgba(13, 59, 102, 0.13);
+    }
+
+    .feature-box h3 {
+      color: #0d3b66;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .feature-box p {
+      color: #53627b;
+      font-size: 0.97rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: 0 10px 28px rgba(13, 59, 102, 0.08);
+      border: 1px solid rgba(13, 59, 102, 0.06);
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #0d3b66, #3da5d9);
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 34px rgba(13, 59, 102, 0.12);
+    }
+
+    .product-card h3 {
+      color: #0d3b66;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .product-card p {
+      color: #60708a;
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+
+    .product-card a {
+      display: inline-block;
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .product-card a:hover {
+      background: linear-gradient(135deg, #14508a, #1d6fb8);
+      transform: scale(1.04);
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
+      text-align: center;
+      padding: 60px 30px;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(13, 59, 102, 0.16);
+    }
+
+    .cta-box h2 {
+      font-size: 2.1rem;
+      margin-bottom: 14px;
+    }
+
+    .cta-box p {
+      max-width: 760px;
+      margin: 0 auto 24px;
+      opacity: 0.95;
+    }
+
+    footer {
+      background: #0b2744;
+      color: #d9e7f7;
+      text-align: center;
+      padding: 30px 15px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 1000px) {
+      .hero-grid,
+      .about-preview {
+        grid-template-columns: 1fr;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-text h1 {
+        font-size: 2.6rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 75px 0 55px;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .section-title h2,
+      .about-preview .text h2,
+      .cta-box h2 {
+        font-size: 1.6rem;
+      }
+
+      .products-grid,
+      .features-grid,
+      .hero-stat {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
 <body>
 
-  <header class="header">
-    <h1>Bluerexall</h1>
-    <p>Biotechnology & Peptide Research Products</p>
+  <header>
+    <div class="container nav">
+      <div class="logo">Bluerexall</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="products.html">Products</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
   <section class="hero">
-    <h2>Advanced Peptide Research Compounds</h2>
-    <p>High purity research-use only biotechnology products.</p>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Advanced Peptide Research Compounds</h1>
+        <p>
+          Bluerexall delivers high purity research-use-only biotechnology products designed to support professional scientific research with reliability, consistency, and precision.
+        </p>
+        <div class="hero-buttons">
+          <a href="products.html" class="btn btn-primary">Explore Products</a>
+          <a href="about.html" class="btn btn-secondary">Learn About Us</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Research-Focused Excellence</h3>
+        <p>
+          With 15 years of active experience in Australia, Bluerexall is committed to providing advanced compounds developed for professional research environments.
+        </p>
+        <p>
+          Our standards are built around purity, dependable quality, and a clear focus on biotechnology innovation.
+        </p>
+
+        <div class="hero-stat">
+          <div class="stat-box">
+            <strong>15+</strong>
+            Years Experience
+          </div>
+          <div class="stat-box">
+            <strong>High</strong>
+            Purity Standards
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="products-preview">
-    <h2>Our Key Products</h2>
-    <ul>
-      <li>IGF-BP3</li>
-      <li>CJC-1295 DAC</li>
-      <li>GHRP-6</li>
-      <li>TB-500</li>
-      <li>Hexarelin</li>
-      <li>Follistatin</li>
-    </ul>
+  <section>
+    <div class="container about-preview">
+      <div class="text">
+        <h2>About Bluerexall</h2>
+        <p>
+          Bluerexall is a biotechnology company specializing in advanced peptide research compounds and high purity research-use-only products. We are dedicated to supporting modern scientific work through reliable compounds and consistent quality.
+        </p>
+        <p>
+          Based in Australia and active for 15 years, our company continues to grow with a strong commitment to precision, research support, and professional standards in biotechnology.
+        </p>
+        <a href="about.html" class="btn btn-primary">Read More</a>
+      </div>
+
+      <div class="info-panel">
+        <div class="item">
+          <strong>Specialization</strong>
+          Advanced Peptide Research Compounds
+        </div>
+        <div class="item">
+          <strong>Product Type</strong>
+          High Purity Research-Use Only Biotechnology Products
+        </div>
+        <div class="item">
+          <strong>Location</strong>
+          Australia
+        </div>
+        <div class="item">
+          <strong>Experience</strong>
+          15 Years of Industry Activity
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Choose Bluerexall</h2>
+        <p>
+          Our work is guided by scientific standards, responsible development, and a long-term commitment to research quality.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-box">
+          <h3>High Purity</h3>
+          <p>
+            Our biotechnology products are developed with careful attention to consistency, precision, and dependable quality expectations.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Trusted Experience</h3>
+          <p>
+            With 15 years of activity in Australia, we bring industry knowledge, stability, and long-term professional dedication.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Research Use Only</h3>
+          <p>
+            Our product line is intended exclusively for research applications and aligned with professional laboratory-focused standards.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Featured Products</h2>
+        <p>
+          Explore some of our advanced peptide research compounds developed for scientific and biotechnology research applications.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <h3>IGF-BP3</h3>
+          <p>Research compound for advanced biotechnology applications.</p>
+          <a href="igf-bp3.html">View Details</a>
+        </div>
+
+        <div class="product-card">
+          <h3>CJC-1295 DAC</h3>
+          <p>High purity compound developed for research-focused use.</p>
+          <a href="cjc1295-dac.html">View Details</a>
+        </div>
+
+        <div class="product-card">
+          <h3>TB-500</h3>
+          <p>Professional-grade research compound with purity-focused standards.</p>
+          <a href="tb500.html">View Details</a>
+        </div>
+
+        <div class="product-card">
+          <h3>Follistatin</h3>
+          <p>Advanced peptide compound intended for scientific research use.</p>
+          <a href="follistatin.html">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta-box">
+        <h2>Supporting Biotechnology Research with Confidence</h2>
+        <p>
+          Bluerexall combines experience, purity standards, and research-focused development to provide dependable biotechnology compounds for professional applications.
+        </p>
+        <a href="products.html" class="btn btn-primary">Browse All Products</a>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>Contact: info.bluerexall@gmail.com</p>
     <p>© 2026 Bluerexall. All rights reserved.</p>
   </footer>
 
