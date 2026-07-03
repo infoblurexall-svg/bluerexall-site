@@ -2,113 +2,224 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Examorelin | Bluerexall</title>
 
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: Arial, sans-serif;
-      background: #0b0f19;
-      color: white;
+      background: linear-gradient(135deg, #0b0f19, #121a29);
+      color: #f3f6fb;
+      line-height: 1.7;
     }
 
     header {
       text-align: center;
-      padding: 30px;
+      padding: 40px 20px 30px;
       background: #111827;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
     header h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 36px;
+      color: #ffffff;
     }
 
     header p {
-      color: #aaa;
+      color: #b8c0cc;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .page-wrap {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .gallery-box,
+    .info-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .gallery-title,
+    .info-box h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #ffffff;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 15px;
-      padding: 20px;
     }
 
     .gallery img {
       width: 100%;
-      border-radius: 12px;
-      transition: 0.3s;
+      border-radius: 14px;
+      transition: 0.3s ease;
       cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #0f1724;
     }
 
     .gallery img:hover {
-      transform: scale(1.05);
+      transform: scale(1.04);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
     }
 
-    .info {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
+    .info-box p {
+      color: #d7dfeb;
+      margin-bottom: 18px;
+      font-size: 15.5px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(61, 165, 217, 0.14);
+      color: #8dd8ff;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.4px;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 24px 20px;
       background: #111827;
-      margin-top: 30px;
-      color: #aaa;
+      margin-top: 40px;
+      color: #aab4c4;
+      font-size: 15px;
+    }
+
+    footer a {
+      color: #8dd8ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 30px;
+      }
+
+      .gallery-title,
+      .info-box h2 {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-wrap {
+        margin: 25px auto;
+        padding: 0 14px;
+      }
+
+      .gallery-box,
+      .info-box {
+        padding: 18px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      header {
+        padding: 30px 15px 24px;
+      }
+
+      header h1 {
+        font-size: 26px;
+      }
+
+      header p {
+        font-size: 14px;
+      }
     }
   </style>
-
 </head>
 
 <body>
 
-<header>
-  <h1>Examorelin</h1>
-  <p>Research Use Only - Biotechnology Peptide</p>
-</header>
+  <header>
+    <h1>Examorelin</h1>
+    <p>Research Use Only - Biotechnology Peptide</p>
+  </header>
 
-<section class="gallery">
+  <div class="page-wrap">
+    <div class="product-layout">
 
-  <img src="images/examorelin/front.png" alt="front">
-  <img src="images/examorelin/back.png" alt="back">
-  <img src="images/examorelin/front-side.png" alt="front side">
-  <img src="images/examorelin/side-back.png" alt="side back">
-  <img src="images/examorelin/unbox.png" alt="unboxing">
+      <section class="gallery-box">
+        <h2 class="gallery-title">Product Gallery</h2>
+        <div class="gallery">
+          <img src="images/examorelin/front.png" alt="Examorelin front view">
+          <img src="images/examorelin/back.png" alt="Examorelin back view">
+          <img src="images/examorelin/front-side.png" alt="Examorelin front side view">
+          <img src="images/examorelin/side-back.png" alt="Examorelin side back view">
+          <img src="images/examorelin/unbox.png" alt="Examorelin unboxing view">
+        </div>
+      </section>
 
-</section>
+      <section class="info-box">
+        <span class="badge">Research Compound</span>
+        <h2>About Examorelin</h2>
 
-<section class="info">
+        <p>
+          Examorelin, also known as Hexarelin, is a synthetic growth hormone secretagogue that has become well recognized in peptide and endocrine research for its potent activity at the ghrelin or growth hormone secretagogue receptor. It belongs to the GHRP class and is studied as a receptor-targeting peptide involved in neuroendocrine signaling. [web:125][web:126][web:127]
+        </p>
 
-  <h2>About Examorelin</h2>
+        <p>
+          In laboratory settings, Examorelin is investigated for its ability to stimulate growth hormone release through GHSR-mediated pathways and for its value in studying pituitary responsiveness and hormonal pulsatility. Research has also noted that this peptide can influence additional endocrine markers such as prolactin, ACTH, and cortisol in human studies, highlighting its relevance in broader neuroendocrine investigation. [web:126][web:127]
+        </p>
 
-<p>
-Examorelin is a synthetic growth hormone releasing peptide (GHRP) that has been studied in scientific research focused on endocrine regulation and growth hormone secretion mechanisms. It is structurally designed to stimulate the ghrelin receptor pathway, which plays a role in natural growth hormone release.
-</p>
+        <p>
+          Because of its strong receptor activity, Examorelin is frequently referenced as one of the more prominent compounds in GHRP-focused research. Scientific interest in this peptide has centered on receptor pharmacology, signaling intensity, endocrine feedback mechanisms, and the phenomenon of partial tolerance with repeated exposure over time. [web:125][web:126]
+        </p>
 
-<p>
-In laboratory studies, Examorelin is primarily used to investigate pituitary function and the physiological processes involved in growth hormone pulsatility. Researchers examine its effects on hormonal signaling pathways to better understand endocrine system regulation.
-</p>
+        <p>
+          Bluerexall manufactures Examorelin as part of its advanced peptide research compound portfolio, with a focus on high-purity biotechnology products intended strictly for research use only. Within laboratory and scientific environments, the compound is positioned for research applications where purity, consistency, and peptide-focused analytical standards are essential. [web:127]
+        </p>
 
-<p>
-Due to its strong activity on growth hormone release pathways, Examorelin is often utilized in controlled experimental models to study short-term hormonal responses and receptor interactions. This makes it a useful compound in peptide-based biochemical research.
-</p>
+        <p>
+          Examorelin is not approved for human consumption, routine therapeutic use, or unregulated medical application, and it should only be handled within appropriate research frameworks. Its continued importance lies in the insight it provides into ghrelin receptor pharmacology, growth hormone signaling, and peptide-driven endocrine response mechanisms. [web:126][web:127]
+        </p>
+      </section>
 
-<p>
-It is important to emphasize that Examorelin is strictly intended for laboratory and research purposes only. It is not approved for human consumption, medical treatment, or any therapeutic applications outside of controlled scientific environments.
-</p>
+    </div>
+  </div>
 
-<p>
-Overall, Examorelin remains a valuable research tool in molecular endocrinology, contributing to a better understanding of growth hormone regulation and receptor-mediated signaling processes.
-</p>
-
-</section>
-
-<footer>
-  Contact: info.bluerexall@gmail.com
-</footer>
+  <footer>
+    Contact: <a href="mailto:info.bluerexall@gmail.com">info.bluerexall@gmail.com</a>
+  </footer>
 
 </body>
 </html>

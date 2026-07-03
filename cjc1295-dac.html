@@ -2,113 +2,224 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CJC-1295 DAC | Bluerexall</title>
 
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: Arial, sans-serif;
-      background: #0b0f19;
-      color: white;
+      background: linear-gradient(135deg, #0b0f19, #121a29);
+      color: #f3f6fb;
+      line-height: 1.7;
     }
 
     header {
       text-align: center;
-      padding: 30px;
+      padding: 40px 20px 30px;
       background: #111827;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
     header h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 36px;
+      color: #ffffff;
     }
 
     header p {
-      color: #aaa;
+      color: #b8c0cc;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .page-wrap {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .gallery-box,
+    .info-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .gallery-title,
+    .info-box h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #ffffff;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 15px;
-      padding: 20px;
     }
 
     .gallery img {
       width: 100%;
-      border-radius: 12px;
-      transition: 0.3s;
+      border-radius: 14px;
+      transition: 0.3s ease;
       cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #0f1724;
     }
 
     .gallery img:hover {
-      transform: scale(1.05);
+      transform: scale(1.04);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
     }
 
-    .info {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
+    .info-box p {
+      color: #d7dfeb;
+      margin-bottom: 18px;
+      font-size: 15.5px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(61, 165, 217, 0.14);
+      color: #8dd8ff;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.4px;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 24px 20px;
       background: #111827;
-      margin-top: 30px;
-      color: #aaa;
+      margin-top: 40px;
+      color: #aab4c4;
+      font-size: 15px;
+    }
+
+    footer a {
+      color: #8dd8ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 30px;
+      }
+
+      .gallery-title,
+      .info-box h2 {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-wrap {
+        margin: 25px auto;
+        padding: 0 14px;
+      }
+
+      .gallery-box,
+      .info-box {
+        padding: 18px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      header {
+        padding: 30px 15px 24px;
+      }
+
+      header h1 {
+        font-size: 26px;
+      }
+
+      header p {
+        font-size: 14px;
+      }
     }
   </style>
-
 </head>
 
 <body>
 
-<header>
-  <h1>CJC-1295 DAC</h1>
-  <p>Research Use Only - Biotechnology Peptide</p>
-</header>
+  <header>
+    <h1>CJC-1295 DAC</h1>
+    <p>Research Use Only - Biotechnology Peptide</p>
+  </header>
 
-<section class="gallery">
+  <div class="page-wrap">
+    <div class="product-layout">
 
-  <img src="images/cjc1295-dac/front.png" alt="front">
-  <img src="images/cjc1295-dac/back.png" alt="back">
-  <img src="images/cjc1295-dac/front-side.png" alt="front side">
-  <img src="images/cjc1295-dac/side-back.png" alt="side back">
-  <img src="images/cjc1295-dac/unbox.png" alt="unboxing">
+      <section class="gallery-box">
+        <h2 class="gallery-title">Product Gallery</h2>
+        <div class="gallery">
+          <img src="images/cjc1295-dac/front.png" alt="CJC-1295 DAC front view">
+          <img src="images/cjc1295-dac/back.png" alt="CJC-1295 DAC back view">
+          <img src="images/cjc1295-dac/front-side.png" alt="CJC-1295 DAC front side view">
+          <img src="images/cjc1295-dac/side-back.png" alt="CJC-1295 DAC side back view">
+          <img src="images/cjc1295-dac/unbox.png" alt="CJC-1295 DAC unboxing view">
+        </div>
+      </section>
 
-</section>
+      <section class="info-box">
+        <span class="badge">Research Compound</span>
+        <h2>About CJC-1295 DAC</h2>
 
-<section class="info">
+        <p>
+          CJC-1295 DAC is a long-acting synthetic analog of growth hormone-releasing hormone (GHRH) that has become well known in endocrine and peptide research because its Drug Affinity Complex enables extended activity compared with shorter-acting GHRH analogs. Its design allows binding to circulating serum albumin, which markedly prolongs its presence in the bloodstream. [web:110][web:119][web:121]
+        </p>
 
-  <h2>About CJC-1295 DAC</h2>
+        <p>
+          In research settings, CJC-1295 DAC is studied for its ability to sustain growth hormone signaling over longer periods than non-DAC forms. Published human data reported dose-dependent increases in growth hormone for 6 days or more and increases in IGF-1 lasting roughly 9 to 11 days after a single injection, with an estimated half-life of about 5.8 to 8.1 days. [web:110]
+        </p>
 
-<p>
-CJC-1295 DAC (Drug Affinity Complex) is a long-acting growth hormone releasing hormone (GHRH) analog that has been extensively studied in scientific research focused on endocrine signaling and growth hormone regulation. Its structure allows for extended binding to serum albumin, resulting in a significantly prolonged half-life compared to non-modified analogs.
-</p>
+        <p>
+          Because of these pharmacokinetic properties, CJC-1295 DAC is widely referenced in scientific discussions involving pituitary function, GH axis regulation, and peptide-based endocrine modulation. It is particularly relevant in studies that compare short-acting and long-acting GHRH analog strategies and explore how prolonged signaling may influence downstream hormonal responses. [web:110][web:112][web:120]
+        </p>
 
-<p>
-In laboratory research, CJC-1295 DAC is primarily used to investigate the mechanisms of growth hormone secretion and pituitary function. It helps researchers better understand how GHRH pathways influence downstream IGF-1 production and overall hormonal balance.
-</p>
+        <p>
+          Bluerexall manufactures CJC-1295 DAC as part of its advanced peptide research compound portfolio, with an emphasis on high-purity biotechnology products intended strictly for research use only. Within laboratory environments, the compound is positioned for scientific work where consistency, purity, and controlled research standards are essential. [web:110][web:121]
+        </p>
 
-<p>
-Due to its extended duration of action, CJC-1295 DAC is frequently utilized in controlled experimental models to observe sustained hormonal responses over time. This makes it particularly useful in studies examining long-term endocrine regulation and metabolic signaling pathways.
-</p>
+        <p>
+          CJC-1295 DAC is not approved for human consumption, routine therapeutic use, or unregulated medical application, and it should only be used within appropriate research frameworks. Its continuing relevance lies in the insight it provides into growth hormone regulation, peptide engineering, and long-acting endocrine signaling mechanisms. [web:110][web:118]
+        </p>
+      </section>
 
-<p>
-It is important to emphasize that CJC-1295 DAC is strictly intended for laboratory and research purposes only. It is not approved for human consumption, medical treatment, or any therapeutic applications outside of regulated scientific environments.
-</p>
+    </div>
+  </div>
 
-<p>
-Overall, CJC-1295 DAC remains a valuable research compound in the field of molecular endocrinology, providing insight into growth hormone regulation and peptide-based signaling mechanisms.
-</p>
-
-</section>
-
-<footer>
-  Contact: info.bluerexall@gmail.com
-</footer>
+  <footer>
+    Contact: <a href="mailto:info.bluerexall@gmail.com">info.bluerexall@gmail.com</a>
+  </footer>
 
 </body>
 </html>

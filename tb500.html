@@ -2,113 +2,224 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TB-500 | Bluerexall</title>
 
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: Arial, sans-serif;
-      background: #0b0f19;
-      color: white;
+      background: linear-gradient(135deg, #0b0f19, #121a29);
+      color: #f3f6fb;
+      line-height: 1.7;
     }
 
     header {
       text-align: center;
-      padding: 30px;
+      padding: 40px 20px 30px;
       background: #111827;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
     header h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 36px;
+      color: #ffffff;
     }
 
     header p {
-      color: #aaa;
+      color: #b8c0cc;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .page-wrap {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .gallery-box,
+    .info-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .gallery-title,
+    .info-box h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #ffffff;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 15px;
-      padding: 20px;
     }
 
     .gallery img {
       width: 100%;
-      border-radius: 12px;
-      transition: 0.3s;
+      border-radius: 14px;
+      transition: 0.3s ease;
       cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #0f1724;
     }
 
     .gallery img:hover {
-      transform: scale(1.05);
+      transform: scale(1.04);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
     }
 
-    .info {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
+    .info-box p {
+      color: #d7dfeb;
+      margin-bottom: 18px;
+      font-size: 15.5px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(61, 165, 217, 0.14);
+      color: #8dd8ff;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.4px;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 24px 20px;
       background: #111827;
-      margin-top: 30px;
-      color: #aaa;
+      margin-top: 40px;
+      color: #aab4c4;
+      font-size: 15px;
+    }
+
+    footer a {
+      color: #8dd8ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 30px;
+      }
+
+      .gallery-title,
+      .info-box h2 {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-wrap {
+        margin: 25px auto;
+        padding: 0 14px;
+      }
+
+      .gallery-box,
+      .info-box {
+        padding: 18px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      header {
+        padding: 30px 15px 24px;
+      }
+
+      header h1 {
+        font-size: 26px;
+      }
+
+      header p {
+        font-size: 14px;
+      }
     }
   </style>
-
 </head>
 
 <body>
 
-<header>
-  <h1>TB-500</h1>
-  <p>Research Use Only - Biotechnology Peptide</p>
-</header>
+  <header>
+    <h1>TB-500</h1>
+    <p>Research Use Only - Biotechnology Peptide</p>
+  </header>
 
-<section class="gallery">
+  <div class="page-wrap">
+    <div class="product-layout">
 
-  <img src="images/tb500/front.png" alt="front">
-  <img src="images/tb500/back.png" alt="back">
-  <img src="images/tb500/front-side.png" alt="front side">
-  <img src="images/tb500/side-back.png" alt="side back">
-  <img src="images/tb500/unbox.png" alt="unboxing">
+      <section class="gallery-box">
+        <h2 class="gallery-title">Product Gallery</h2>
+        <div class="gallery">
+          <img src="images/tb500/front.png" alt="TB-500 front view">
+          <img src="images/tb500/back.png" alt="TB-500 back view">
+          <img src="images/tb500/front-side.png" alt="TB-500 front side view">
+          <img src="images/tb500/side-back.png" alt="TB-500 side back view">
+          <img src="images/tb500/unbox.png" alt="TB-500 unboxing view">
+        </div>
+      </section>
 
-</section>
+      <section class="info-box">
+        <span class="badge">Research Compound</span>
+        <h2>About TB-500</h2>
 
-<section class="info">
+        <p>
+          TB-500 is a synthetic peptide associated with thymosin beta-4 research and is widely recognized in experimental peptide science for its relevance to cellular migration, actin dynamics, angiogenesis, and tissue-response pathways. It has become a notable compound in preclinical peptide research because of the broad biological processes linked to thymosin beta-4-related mechanisms.
+        </p>
 
-  <h2>About TB-500</h2>
+        <p>
+          In laboratory and biotechnology research, TB-500 is commonly examined in connection with cell movement, structural protein regulation, and regenerative signaling pathways. Preclinical studies have explored how this peptide class may participate in tissue remodeling and recovery-related biological responses under controlled experimental conditions.
+        </p>
 
-<p>
-TB-500 (Thymosin Beta-4 fragment) is a synthetic peptide that has been widely studied in scientific research focused on cellular repair mechanisms and tissue regeneration processes. It is derived from a naturally occurring protein involved in actin regulation, which plays a key role in cell structure and movement.
-</p>
+        <p>
+          Because of this scientific relevance, TB-500 is frequently referenced in peptide and regenerative biology discussions involving wound-response mechanisms and repair-associated signaling. At the same time, currently available human evidence remains limited, and the compound continues to be regarded primarily as investigational within research settings.
+        </p>
 
-<p>
-In laboratory studies, TB-500 has been investigated for its potential involvement in promoting cell migration, angiogenesis, and the modulation of inflammatory responses. These properties make it a subject of interest in research related to wound healing and regenerative biology.
-</p>
+        <p>
+          Bluerexall manufactures TB-500 as part of its advanced peptide research compound portfolio, with a focus on high-purity biotechnology products intended strictly for research use only. The compound is positioned for professional laboratory and scientific environments where consistency, purity, and research-oriented handling standards are essential.
+        </p>
 
-<p>
-Researchers also explore TB-500 for its possible role in enhancing recovery processes in muscle and connective tissues under controlled experimental conditions. Its effects are studied at the molecular level to better understand how cells respond to injury and repair signals.
-</p>
+        <p>
+          TB-500 is not approved for human consumption, therapeutic use, or medical treatment, and it should only be handled within appropriate scientific and laboratory frameworks. Its ongoing value lies in the insight it offers into peptide-mediated cellular behavior, tissue-response biology, and regenerative signaling research.
+        </p>
+      </section>
 
-<p>
-It is important to emphasize that TB-500 is strictly intended for research and laboratory use only. It is not approved for human consumption, medical treatment, or therapeutic applications outside of controlled scientific environments.
-</p>
+    </div>
+  </div>
 
-<p>
-Overall, TB-500 remains a valuable compound in biomedical research due to its association with cellular regeneration pathways and its potential to help scientists better understand tissue repair mechanisms.
-</p>
-
-</section>
-
-<footer>
-  Contact: info.bluerexall@gmail.com
-</footer>
+  <footer>
+    Contact: <a href="mailto:info.bluerexall@gmail.com">info.bluerexall@gmail.com</a>
+  </footer>
 
 </body>
 </html>

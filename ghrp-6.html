@@ -2,113 +2,224 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GHRP-6 | Bluerexall</title>
 
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: Arial, sans-serif;
-      background: #0b0f19;
-      color: white;
+      background: linear-gradient(135deg, #0b0f19, #121a29);
+      color: #f3f6fb;
+      line-height: 1.7;
     }
 
     header {
       text-align: center;
-      padding: 30px;
+      padding: 40px 20px 30px;
       background: #111827;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
     header h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 36px;
+      color: #ffffff;
     }
 
     header p {
-      color: #aaa;
+      color: #b8c0cc;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .page-wrap {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .gallery-box,
+    .info-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .gallery-title,
+    .info-box h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #ffffff;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 15px;
-      padding: 20px;
     }
 
     .gallery img {
       width: 100%;
-      border-radius: 12px;
-      transition: 0.3s;
+      border-radius: 14px;
+      transition: 0.3s ease;
       cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #0f1724;
     }
 
     .gallery img:hover {
-      transform: scale(1.05);
+      transform: scale(1.04);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
     }
 
-    .info {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
+    .info-box p {
+      color: #d7dfeb;
+      margin-bottom: 18px;
+      font-size: 15.5px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(61, 165, 217, 0.14);
+      color: #8dd8ff;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.4px;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 24px 20px;
       background: #111827;
-      margin-top: 30px;
-      color: #aaa;
+      margin-top: 40px;
+      color: #aab4c4;
+      font-size: 15px;
+    }
+
+    footer a {
+      color: #8dd8ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 30px;
+      }
+
+      .gallery-title,
+      .info-box h2 {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-wrap {
+        margin: 25px auto;
+        padding: 0 14px;
+      }
+
+      .gallery-box,
+      .info-box {
+        padding: 18px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      header {
+        padding: 30px 15px 24px;
+      }
+
+      header h1 {
+        font-size: 26px;
+      }
+
+      header p {
+        font-size: 14px;
+      }
     }
   </style>
-
 </head>
 
 <body>
 
-<header>
-  <h1>GHRP-6</h1>
-  <p>Research Use Only - Biotechnology Peptide</p>
-</header>
+  <header>
+    <h1>GHRP-6</h1>
+    <p>Research Use Only - Biotechnology Peptide</p>
+  </header>
 
-<section class="gallery">
+  <div class="page-wrap">
+    <div class="product-layout">
 
-  <img src="images/ghrp-6/front.png" alt="front">
-  <img src="images/ghrp-6/back.png" alt="back">
-  <img src="images/ghrp-6/front-side.png" alt="front side">
-  <img src="images/ghrp-6/side-back.png" alt="side back">
-  <img src="images/ghrp-6/unbox.png" alt="unboxing">
+      <section class="gallery-box">
+        <h2 class="gallery-title">Product Gallery</h2>
+        <div class="gallery">
+          <img src="images/ghrp-6/front.png" alt="GHRP-6 front view">
+          <img src="images/ghrp-6/back.png" alt="GHRP-6 back view">
+          <img src="images/ghrp-6/front-side.png" alt="GHRP-6 front side view">
+          <img src="images/ghrp-6/side-back.png" alt="GHRP-6 side back view">
+          <img src="images/ghrp-6/unbox.png" alt="GHRP-6 unboxing view">
+        </div>
+      </section>
 
-</section>
+      <section class="info-box">
+        <span class="badge">Research Compound</span>
+        <h2>About GHRP-6</h2>
 
-<section class="info">
+        <p>
+          GHRP-6, short for Growth Hormone Releasing Peptide-6, is a synthetic hexapeptide that has long been recognized in endocrine and peptide research as a representative member of the growth hormone secretagogue class. It acts through the ghrelin receptor pathway rather than through classical GHRH signaling, which makes it scientifically important for studying alternative mechanisms of growth hormone regulation. [web:155][web:159][web:164]
+        </p>
 
-  <<h2>About CJC-1295 DAC</h2>
+        <p>
+          In laboratory investigations, GHRP-6 is used to examine pituitary stimulation, intracellular signaling, and neuroendocrine response patterns associated with GH secretion. Published studies have described its effects on pathways involving protein kinase C, intracellular calcium mobilization, and transcriptional regulation linked to somatotroph function. [web:161][web:164]
+        </p>
 
-<p>
-CJC-1295 DAC (Drug Affinity Complex) is a long-acting growth hormone releasing hormone (GHRH) analog that has been widely studied in scientific research focused on endocrine system regulation and growth hormone secretion pathways. Its molecular design allows it to bind to serum albumin, significantly extending its half-life in experimental environments.
-</p>
+        <p>
+          Scientific interest in GHRP-6 also extends beyond simple GH release. Research has explored its interaction with ghrelin-related signaling, its effects on appetite-associated pathways, and its relevance to broader receptor pharmacology, making it a notable compound in peptide-based endocrine research. [web:155][web:156][web:167]
+        </p>
 
-<p>
-In laboratory studies, CJC-1295 DAC is primarily used to investigate the mechanisms of growth hormone pulsatility and pituitary stimulation. Researchers analyze its effects on GH release patterns and downstream IGF-1 signaling pathways to better understand hormonal regulation in biological systems.
-</p>
+        <p>
+          Bluerexall manufactures GHRP-6 as part of its advanced peptide research compound portfolio, with a focus on high-purity biotechnology products intended strictly for research use only. In professional laboratory environments, the compound is positioned for analytical and scientific applications where consistency, controlled handling, and research-oriented quality standards are essential. [web:155][web:168]
+        </p>
 
-<p>
-Due to its extended duration of action, CJC-1295 DAC is often used in controlled research models to observe sustained endocrine responses over time. This makes it particularly useful for studying long-term hormonal dynamics and metabolic regulation at the molecular level.
-</p>
+        <p>
+          GHRP-6 is not approved for human consumption, medical treatment, or unregulated therapeutic use, and it should only be handled within appropriate research frameworks. Its continued relevance lies in the insight it provides into ghrelin receptor biology, peptide-driven endocrine signaling, and the molecular control of growth hormone secretagogue systems. [web:155][web:164][web:169]
+        </p>
+      </section>
 
-<p>
-It is important to emphasize that CJC-1295 DAC is strictly intended for laboratory and research purposes only. It is not approved for human consumption, medical treatment, or any therapeutic application outside of controlled scientific environments.
-</p>
+    </div>
+  </div>
 
-<p>
-Overall, CJC-1295 DAC remains an important research compound in molecular endocrinology, contributing to a deeper understanding of growth hormone regulation and peptide-based signaling systems.
-</p>
-
-</section>
-
-<footer>
-  Contact: info.bluerexall@gmail.com
-</footer>
+  <footer>
+    Contact: <a href="mailto:info.bluerexall@gmail.com">info.bluerexall@gmail.com</a>
+  </footer>
 
 </body>
 </html>
