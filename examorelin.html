@@ -3,35 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <title>Examorelin | Bluerexall</title>
-  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0f19;
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px;
+      background: #111827;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      color: #aaa;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .info {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111827;
+      margin-top: 30px;
+      color: #aaa;
+    }
+  </style>
+
 </head>
+
 <body>
 
 <header>
   <h1>Examorelin</h1>
-  <p>Research Use Only - Peptide Compound</p>
+  <p>Research Use Only - Biotechnology Peptide</p>
 </header>
 
 <section class="gallery">
 
-  <img src="images/examorelin/front.jpg">
-  <img src="images/examorelin/back.jpg">
-  <img src="images/examorelin/front-side.jpg">
-  <img src="images/examorelin/side-back.jpg">
-  <img src="images/examorelin/unbox.jpg">
+  <img src="images/examorelin/front.png" alt="front">
+  <img src="images/examorelin/back.png" alt="back">
+  <img src="images/examorelin/front-side.png" alt="front side">
+  <img src="images/examorelin/side-back.png" alt="side back">
+  <img src="images/examorelin/unbox.png" alt="unboxing">
 
 </section>
 
 <section class="info">
-  <h2>Product Information</h2>
+
+  <h2>About Examorelin</h2>
+
   <p>
-    Examorelin is a synthetic growth hormone secretagogue used in research applications.
-    This product is strictly for laboratory research use only.
+    Examorelin is a synthetic growth hormone releasing peptide used in scientific research.
+    It is intended strictly for laboratory research purposes only and not for human consumption.
   </p>
+
 </section>
 
 <footer>
-  <p>Contact: bluerexall@gmail.com</p>
+  Contact: bluerexall@gmail.com
 </footer>
 
 </body>
