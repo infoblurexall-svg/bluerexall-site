@@ -14,7 +14,9 @@ export async function onRequestPost(context) {
             }, { status: 400 });
         }
 
-        const buffer = await file.arrayBuffer();
+        // ✅ FIX اصلی Cloudflare
+        const buffer = await new Response(file).arrayBuffer();
+
         const XLSX = await import("xlsx");
 
         const workbook = XLSX.read(buffer, { type: "buffer" });
