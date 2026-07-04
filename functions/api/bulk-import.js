@@ -14,12 +14,12 @@ export async function onRequestPost(context) {
             }, { status: 400 });
         }
 
-        // ✅ FIX نهایی (کاملاً سازگار با Cloudflare)
-        const buffer = Buffer.from(await file.arrayBuffer());
+        // ✅ FIX صحیح Cloudflare (بدون Buffer)
+        const arrayBuffer = await file.arrayBuffer();
 
         const XLSX = await import("xlsx");
 
-        const workbook = XLSX.read(buffer, { type: "buffer" });
+        const workbook = XLSX.read(arrayBuffer, { type: "array" });
 
         const sheet = workbook.Sheets[workbook.SheetNames[0]];
 
