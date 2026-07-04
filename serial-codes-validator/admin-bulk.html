@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bulk Serial Import | Bluerexall</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#0b0f19;
+    color:white;
+    padding:40px;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+}
+
+textarea{
+    width:100%;
+    height:300px;
+    padding:15px;
+    font-size:16px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+}
+
+button{
+    margin-top:15px;
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    background:#00bfff;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0095d9;
+}
+
+.card{
+    margin-top:20px;
+    padding:15px;
+    background:#111827;
+    border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Bulk Serial Import</h1>
+
+<p>Paste serials (one per line)</p>
+
+<textarea id="serials"></textarea>
+
+<button onclick="importSerials()">Import</button>
+
+<div id="result" class="card"></div>
+
+</div>
+
+<script>
+async function importSerials(){
+
+    const text = document.getElementById("serials").value;
+
+    const res = await fetch("/api/bulk-import", {
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+            serials: text
+        })
+    });
+
+    const data = await res.json();
+
+    document.getElementById("result").innerHTML = `
+        <h3>Result</h3>
+        <p>Imported: ${data.imported}</p>
+        <p>Skipped: ${data.skipped}</p>
+        <p>Total: ${data.total}</p>
+    `;
+}
+</script>
+
+</body>
+</html>
