@@ -14,15 +14,12 @@ export async function onRequestPost(context) {
             }, { status: 400 });
         }
 
-        // ✅ FIX 100% Cloudflare compatible
-        const fileArrayBuffer = await file.arrayBuffer();
-
-        // جلوگیری از typed array crash
-        const uint8 = new Uint8Array(fileArrayBuffer);
+        // ✅ مهم‌ترین FIX
+        const arrayBuffer = await request.arrayBuffer();
 
         const XLSX = await import("xlsx");
 
-        const workbook = XLSX.read(uint8, { type: "array" });
+        const workbook = XLSX.read(arrayBuffer, { type: "array" });
 
         const sheet = workbook.Sheets[workbook.SheetNames[0]];
 
@@ -78,7 +75,7 @@ export async function onRequestPost(context) {
 
         return Response.json({
             success: false,
-            message: err.message || "Import failed"
+            message: err.message
         }, { status: 500 });
     }
 }
