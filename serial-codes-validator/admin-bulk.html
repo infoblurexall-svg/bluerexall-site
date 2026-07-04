@@ -95,3 +95,32 @@ async function importSerials(){
 
 </body>
 </html>
+
+<script>
+async function importSerials(){
+
+    const text = document.getElementById("serials").value;
+
+    // 👇 اینجا باید بگذاری
+    const res = await fetch("/api/bulk-import", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            serials: text
+        })
+    });
+
+    const data = await res.json();
+
+    console.log(data);
+
+    document.getElementById("result").innerHTML = `
+        <h3>Result</h3>
+        <p>Imported: ${data.imported ?? 0}</p>
+        <p>Skipped: ${data.skipped ?? 0}</p>
+        <p>Total: ${data.total ?? 0}</p>
+    `;
+}
+</script>
