@@ -12,116 +12,86 @@ document.addEventListener("DOMContentLoaded", () => {
         const serial = input.value.trim().toUpperCase();
 
         if (!serial) {
-
-            showMessage("Please enter a serial number.", "warning");
-
+            showResult("warning", "Please enter a serial number.");
             return;
-
         }
 
-        button.disabled = true;
-        button.innerText = "Checking...";
-
-        resultBox.innerHTML = `
-            <div class="result-card checking">
-                <div class="spinner"></div>
-                <h3>Checking Serial Number...</h3>
-                <p>Please wait.</p>
-            </div>
-        `;
+        setLoading(true);
 
         try {
 
             const res = await fetch("/api/verify", {
-
                 method: "POST",
-
                 headers: {
                     "Content-Type": "application/json"
                 },
-
-                body: JSON.stringify({
-                    serial
-                })
-
+                body: JSON.stringify({ serial })
             });
 
             const data = await res.json();
 
             if (!data.success) {
 
-                resultBox.innerHTML = `
-                    <div class="result-card invalid">
-
-                        <div class="icon">✖</div>
-
-                        <h2>Invalid Serial Number</h2>
-
-                        <p>
-                            The serial number you entered was not found in our database.
-                        </p>
-
-                        <small>
-                            Please check the serial number and try again.
-                        </small>
-
-                    </div>
-                `;
+                showResult("invalid", `
+                    <div class="icon">✖</div>
+                    <h2>Invalid Serial Number</h2>
+                    <p>This serial number is not valid.</p>
+                `);
 
             } else {
 
-                resultBox.innerHTML = `
-                    <div class="result-card valid">
+                showResult("valid", `
+                    <div class="icon">✔</div>
+                    <h2>Authentic Product</h2>
 
-                        <div class="icon">✔</div>
+                    <p><strong>Serial:</strong></p>
+                    <p>${data.serial || serial}</p>
 
-                        <h2>Authentic Product</h2>
+                    <p><strong>Batch:</strong></p>
+                    <p>${data.batch || "-"}</p>
 
-                        <p><strong>Serial Number</strong></p>
-
-                        <p>${data.serial}</p>
-
-                        <p><strong>Batch</strong></p>
-
-                        <p>${data.batch}</p>
-
-                    </div>
-                `;
+                    <p><strong>Verification:</strong></p>
+                    <p>${data.verificationCount ?? 0}</p>
+                `);
 
             }
 
-        }
+        } catch (err) {
 
-        catch (err) {
-
-            resultBox.innerHTML = `
-                <div class="result-card invalid">
-
-                    <div class="icon">⚠</div>
-
-                    <h2>Connection Error</h2>
-
-                    <p>
-
-                        Unable to connect to the verification server.
-
-                    </p>
-
-                </div>
-            `;
+            showResult("invalid", `
+                <div class="icon">⚠</div>
+                <h2>Connection Error</h2>
+                <p>Server is not responding.</p>
+            `);
 
         }
 
-        button.disabled = false;
-        button.innerText = "Verify";
+        setLoading(false);
 
     });
 
-    function showMessage(text) {
+    function setLoading(state) {
+
+        button.disabled = state;
+        button.innerText = state ? "Checking..." : "Verify";
+
+        if (state) {
+            resultBox.innerHTML = `
+                <div class="result-card checking">
+                    <div class="spinner"></div>
+                    <h3>Checking...</h3>
+                    <p>Please wait</p>
+                </div>
+            `;
+        }
+
+    }
+
+    function showResult(type, content) {
 
         resultBox.innerHTML = `
-            <div class="result-card warning">
-                ${text}
+            <div class="result-card ${type}">
+                ${content}
             </div>
         `;
 

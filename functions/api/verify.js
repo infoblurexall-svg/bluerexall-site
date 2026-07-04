@@ -10,7 +10,7 @@ export async function onRequestPost(context) {
         if (!serial) {
             return Response.json({
                 success: false,
-                message: "Serial number is required."
+                message: "Serial is required"
             }, { status: 400 });
         }
 
@@ -19,35 +19,32 @@ export async function onRequestPost(context) {
         if (!data) {
             return Response.json({
                 success: false,
-                status: "Invalid"
+                message: "Invalid Serial"
             });
         }
 
-        let product;
+        let product = {
+            batch: "UNKNOWN",
+            verificationCount: 0
+        };
 
         try {
-            product = JSON.parse(data);
-        } catch {
-
-            // اگر داده به صورت متن ساده ذخیره شده باشد
+            const parsed = JSON.parse(data);
             product = {
-                batch: "UNKNOWN",
-                verificationCount: 0
+                batch: parsed.batch || "UNKNOWN",
+                verificationCount: parsed.verificationCount || 0
             };
+        } catch {
+            // اگر JSON خراب بود
         }
 
-        if (typeof product.verificationCount !== "number") {
-            product.verificationCount = 0;
-        }
-
-        product.verificationCount++;
+        product.verificationCount += 1;
 
         await env.SERIALS.put(serial, JSON.stringify(product));
 
         return Response.json({
             success: true,
-            serial: serial,
-            status: "Valid",
+            serial,
             batch: product.batch,
             verificationCount: product.verificationCount
         });
@@ -56,10 +53,8 @@ export async function onRequestPost(context) {
 
         return Response.json({
             success: false,
-            status: "Error",
             message: err.message
         }, { status: 500 });
 
     }
-
 }
