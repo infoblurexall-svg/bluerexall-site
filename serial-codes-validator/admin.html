@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Import</title>
+</head>
+<body style="background:#0b0f19;color:white;font-family:Arial;text-align:center;padding:40px;">
+
+<h2>Bulk Import Serial Codes</h2>
+
+<input type="file" id="file" />
+
+<br><br>
+
+<button onclick="upload()">Upload & Import</button>
+
+<h3 id="status"></h3>
+
+<script>
+async function upload() {
+
+    const file = document.getElementById("file").files[0];
+    const status = document.getElementById("status");
+
+    if (!file) {
+        status.innerText = "Select file first";
+        return;
+    }
+
+    status.innerText = "Uploading...";
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const res = await fetch("/api/bulk-import", {
+        method: "POST",
+        body: formData
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+        status.innerText =
+            `Done ✔ Imported: ${data.imported} | Skipped: ${data.skipped}`;
+    } else {
+        status.innerText = "Error: " + data.message;
+    }
+}
+</script>
+
+</body>
+</html>
