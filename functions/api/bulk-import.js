@@ -4,6 +4,7 @@ export async function onRequestPost(context) {
 
     try {
 
+        // ❗ فقط یک بار خوانده می‌شود
         const formData = await request.formData();
         const file = formData.get("file");
 
@@ -14,15 +15,14 @@ export async function onRequestPost(context) {
             }, { status: 400 });
         }
 
-        // ✅ مهم‌ترین FIX
-        const arrayBuffer = await request.arrayBuffer();
+        // ✅ فقط همین یک روش
+        const arrayBuffer = await file.arrayBuffer();
 
         const XLSX = await import("xlsx");
 
         const workbook = XLSX.read(arrayBuffer, { type: "array" });
 
         const sheet = workbook.Sheets[workbook.SheetNames[0]];
-
         const rows = XLSX.utils.sheet_to_json(sheet);
 
         const seen = new Set();
