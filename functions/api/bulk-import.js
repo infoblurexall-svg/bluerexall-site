@@ -1,8 +1,64 @@
 export async function onRequestPost(context) {
 
-    const { env } = context;
+    const { request, env } = context;
 
-    return Response.json({
-        hasKV: !!env.BLUEREXALL_SERIALS
-    });
+    try {
+
+        const body = await request.json();
+
+        const input = body.serials || "";
+
+        const serials = input
+            .split("\n")
+            .map(s => s.trim().toUpperCase())
+            .filter(Boolean);
+
+        const seen = new Set();
+
+        let imported = 0;
+        let skipped = 0;
+
+        for (const serial of serials) {
+
+            if (!serial) {
+                skipped++;
+                continue;
+            }
+
+            if (seen.has(serial)) {
+                skipped++;
+                continue;
+            }
+
+            seen.add(serial);
+
+            const exists = await env.BLUEREXALL_SERIALS.get(serial);
+
+            if (exists) {
+                skipped++;
+                continue;
+            }
+
+            await env.BLUEREXALL_SERIALS.put(serial, JSON.stringify({
+                batch: "FS-260701",
+                verificationCount: 0
+            }));
+
+            imported++;
+        }
+
+        return Response.json({
+            success: true,
+            imported: imported,
+            skipped: skipped,
+            total: serials.length
+        });
+
+    } catch (err) {
+
+        return Response.json({
+            success: false,
+            message: err.message
+        }, { status: 500 });
+    }
 }
