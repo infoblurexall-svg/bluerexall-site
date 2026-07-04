@@ -15,7 +15,7 @@ export async function onRequestPost(context) {
             }, { status: 400 });
         }
 
-        // ✅ مهم‌ترین FIX Cloudflare
+        // ✅ Cloudflare safe read
         const bytes = new Uint8Array(await file.arrayBuffer());
 
         const XLSX = await import("xlsx");
@@ -50,14 +50,15 @@ export async function onRequestPost(context) {
 
             seen.add(serial);
 
-            const exists = await env.SERIALS.get(serial);
+            // ✅ KV binding درست تو
+            const exists = await env.BLUEREXALL_SERIALS.get(serial);
 
             if (exists) {
                 skipped++;
                 continue;
             }
 
-            await env.SERIALS.put(serial, JSON.stringify({
+            await env.BLUEREXALL_SERIALS.put(serial, JSON.stringify({
                 batch: "FS-260701",
                 verificationCount: 0
             }));
@@ -76,7 +77,7 @@ export async function onRequestPost(context) {
 
         return Response.json({
             success: false,
-            message: err.message
+            message: err.message || "Import failed"
         }, { status: 500 });
     }
 }
