@@ -14,15 +14,17 @@ export async function onRequestPost(context) {
             }, { status: 400 });
         }
 
-        // ✅ Cloudflare-safe file read
-        const arrayBuffer = await new Response(file).arrayBuffer();
+        // ✅ FIX 100% Cloudflare compatible
+        const fileArrayBuffer = await file.arrayBuffer();
+
+        // جلوگیری از typed array crash
+        const uint8 = new Uint8Array(fileArrayBuffer);
 
         const XLSX = await import("xlsx");
 
-        const workbook = XLSX.read(arrayBuffer, { type: "array" });
+        const workbook = XLSX.read(uint8, { type: "array" });
 
-        const sheetName = workbook.SheetNames[0];
-        const sheet = workbook.Sheets[sheetName];
+        const sheet = workbook.Sheets[workbook.SheetNames[0]];
 
         const rows = XLSX.utils.sheet_to_json(sheet);
 
