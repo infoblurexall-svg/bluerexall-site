@@ -93,3 +93,111 @@ button:hover{
     line-height:1.8;
 
 }
+
+.result-card{
+
+    margin-top:30px;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    animation:fade .35s ease;
+
+}
+
+.valid{
+
+    background:#113d21;
+
+    border:2px solid #29c45a;
+
+}
+
+.invalid{
+
+    background:#451919;
+
+    border:2px solid #ff4d4d;
+
+}
+
+.warning{
+
+    background:#4d3d16;
+
+    border:2px solid orange;
+
+}
+
+.checking{
+
+    background:#16233d;
+
+    border:2px solid #00bfff;
+
+}
+
+.icon{
+
+    font-size:48px;
+
+    margin-bottom:10px;
+
+}
+
+.spinner{
+
+    width:40px;
+
+    height:40px;
+
+    margin:0 auto 20px;
+
+    border:4px solid rgba(255,255,255,.25);
+
+    border-top:4px solid white;
+
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
+
+}
+
+button:disabled{
+
+    opacity:.7;
+
+    cursor:not-allowed;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
