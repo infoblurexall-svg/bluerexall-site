@@ -101,14 +101,13 @@ async function importSerials(){
 
     const text = document.getElementById("serials").value;
 
-    // 👇 اینجا باید بگذاری
     const res = await fetch("/api/bulk-import", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            serials: text
+            serials: text   // 👈 مهم‌ترین خط
         })
     });
 
