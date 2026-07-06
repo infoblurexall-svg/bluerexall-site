@@ -1,69 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bluerexall | Serial Codes Validator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serial Codes Validator - Bluerexall</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #f4f8fc;
-      --surface: #ffffff;
-      --surface-soft: #f7fbff;
-      --text: #17324d;
-      --muted: #5b6f86;
-      --border: #d9e5f1;
-      --primary: #0d3b66;
-      --primary-2: #3da5d9;
-      --success-bg: #eaf8ee;
-      --success-border: #7bc592;
-      --success-text: #166534;
-      --error-bg: #fff1f2;
-      --error-border: #f2a3ae;
-      --error-text: #b42318;
-      --shadow: 0 18px 40px rgba(13, 59, 102, 0.08);
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --radius-sm: 12px;
-    }
-
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
-      color: var(--text);
-      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #eef4ff, #f8fbff);
+      color: #1b2b45;
+      line-height: 1.7;
     }
 
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid rgba(13, 59, 102, 0.08);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    a {
+      text-decoration: none;
     }
 
     .container {
-      width: min(1100px, calc(100% - 32px));
-      margin: 0 auto;
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
+      padding: 24px 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
     .nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 20px;
-      padding: 18px 0;
+      flex-wrap: wrap;
     }
 
     .logo {
-      font-size: 1.25rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      color: var(--primary);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.5px;
     }
 
     .nav-links {
@@ -73,139 +59,144 @@
     }
 
     .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 0.96rem;
+      color: #fff;
+      font-weight: 500;
+      opacity: 0.95;
+      transition: 0.3s;
     }
 
-    .nav-links a:hover,
+    .nav-links a:hover {
+      opacity: 1;
+      color: #cfe8ff;
+    }
+
     .nav-links a[aria-current="page"] {
-      color: var(--primary);
+      color: #ffffff;
+      font-weight: 700;
+      border-bottom: 2px solid #ffffff;
+      padding-bottom: 2px;
     }
 
-    .page-hero {
+    .hero {
+      padding: 90px 0 70px;
+      background: linear-gradient(135deg, #0d3b66 0%, #1d6fb8 100%);
+      color: #fff;
       text-align: center;
-      padding: 56px 20px 22px;
     }
 
-    .page-hero h1 {
-      margin: 0 0 12px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--primary);
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 800;
     }
 
-    .page-hero p {
+    .hero p {
       max-width: 760px;
-      margin: 0 auto;
-      color: var(--muted);
-      line-height: 1.7;
+      margin: auto;
+      font-size: 1.08rem;
+      opacity: 0.95;
     }
 
     .validator-section {
-      width: min(760px, calc(100% - 32px));
-      margin: 18px auto 70px;
+      padding: 80px 0;
+    }
+
+    .validator-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .validator-text h2 {
+      font-size: 2rem;
+      color: #0d3b66;
+      margin-bottom: 20px;
+    }
+
+    .validator-text p {
+      margin-bottom: 18px;
+      color: #33415c;
+      font-size: 1rem;
     }
 
     .validator-card {
-      background: var(--surface);
+      background: #fff;
+      padding: 35px 28px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(13, 59, 102, 0.08);
       border: 1px solid rgba(13, 59, 102, 0.08);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      overflow: hidden;
     }
 
-    .validator-card::before {
-      content: "";
-      display: block;
-      height: 5px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-2));
-    }
-
-    .validator-body {
-      padding: 32px 26px;
-    }
-
-    .validator-body h2 {
-      margin: 0 0 12px;
-      font-size: 1.6rem;
-      color: var(--primary);
-    }
-
-    .validator-body p {
-      margin: 0 0 24px;
-      color: var(--muted);
-      line-height: 1.7;
+    .validator-card h3 {
+      color: #0d3b66;
+      margin-bottom: 18px;
+      font-size: 1.4rem;
     }
 
     .form-group {
       margin-bottom: 18px;
     }
 
-    label {
+    .form-group label {
       display: block;
+      color: #0d3b66;
+      font-weight: 600;
       margin-bottom: 8px;
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 0.96rem;
     }
 
-    input[type="text"] {
+    .form-group input {
       width: 100%;
-      min-height: 52px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: var(--surface-soft);
-      padding: 0 16px;
+      padding: 14px 16px;
+      border: 1px solid #d9e5f2;
+      border-radius: 12px;
       font-size: 1rem;
-      color: var(--text);
+      font-family: inherit;
+      color: #1b2b45;
+      background: #f9fbff;
       outline: none;
+      transition: 0.3s ease;
     }
 
-    input[type="text"]:focus {
-      border-color: var(--primary-2);
-      box-shadow: 0 0 0 4px rgba(61, 165, 217, 0.14);
+    .form-group input:focus {
+      border-color: #1d6fb8;
+      box-shadow: 0 0 0 4px rgba(29, 111, 184, 0.12);
       background: #fff;
     }
 
-    .actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 6px;
-    }
-
-    button {
-      min-height: 50px;
-      padding: 0 20px;
-      border: none;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--primary), #14508a);
+    .verify-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #0d3b66, #14508a);
       color: #fff;
-      font-size: 0.98rem;
-      font-weight: 700;
+      padding: 14px 26px;
+      border-radius: 12px;
+      font-weight: 600;
+      border: none;
       cursor: pointer;
-      box-shadow: 0 12px 26px rgba(13, 59, 102, 0.16);
+      transition: 0.3s ease;
+      font-family: inherit;
+      font-size: 0.98rem;
     }
 
-    button:hover {
-      opacity: 0.96;
-      transform: translateY(-1px);
+    .verify-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(13, 59, 102, 0.15);
     }
 
-    .helper-text {
+    .helper-note {
       margin-top: 14px;
-      color: var(--muted);
-      font-size: 0.92rem;
+      color: #5b6b84;
+      font-size: 0.95rem;
     }
 
     .result {
-      margin-top: 24px;
-      padding: 18px 18px;
-      border-radius: var(--radius-md);
+      margin-top: 22px;
+      padding: 18px 16px;
+      border-radius: 16px;
       border: 1px solid transparent;
       display: none;
-      line-height: 1.75;
-      word-break: break-word;
+      font-size: 0.97rem;
+      line-height: 1.8;
     }
 
     .result.show {
@@ -213,57 +204,92 @@
     }
 
     .result.success {
-      background: var(--success-bg);
-      border-color: var(--success-border);
-      color: var(--success-text);
+      background: #ecfdf3;
+      border-color: #9ed8b4;
+      color: #166534;
     }
 
     .result.error {
-      background: var(--error-bg);
-      border-color: var(--error-border);
-      color: var(--error-text);
+      background: #fff1f2;
+      border-color: #f3b0b7;
+      color: #b42318;
     }
 
-    .result strong {
-      color: inherit;
+    .info-list {
+      margin-top: 24px;
+    }
+
+    .info-item {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e8eef7;
+    }
+
+    .info-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .info-item strong {
+      display: block;
+      color: #0d3b66;
+      margin-bottom: 5px;
     }
 
     footer {
+      background: #0b2744;
+      color: #dce8f7;
       text-align: center;
-      padding: 26px 20px 38px;
-      color: var(--muted);
-      font-size: 0.95rem;
+      padding: 28px 15px;
+      margin-top: 70px;
     }
 
-    @media (max-width: 640px) {
-      .validator-body {
-        padding: 24px 18px;
+    @media (max-width: 900px) {
+      .validator-grid {
+        grid-template-columns: 1fr;
       }
 
-      .page-hero {
-        padding-top: 42px;
+      .hero h1 {
+        font-size: 2.4rem;
       }
+    }
 
+    @media (max-width: 600px) {
       .nav {
-        flex-direction: column;
-        align-items: flex-start;
+        justify-content: center;
+        text-align: center;
       }
 
       .nav-links {
-        gap: 14px;
+        justify-content: center;
       }
 
-      button {
+      .hero {
+        padding: 70px 0 50px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .validator-text h2,
+      .validator-card h3 {
+        font-size: 1.6rem;
+      }
+
+      .verify-btn {
         width: 100%;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
     <div class="container nav">
       <div class="logo">Bluerexall</div>
-      <nav class="nav-links" aria-label="Main">
+      <nav class="nav-links" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
         <a href="about.html">About</a>
@@ -273,20 +299,32 @@
     </div>
   </header>
 
-  <section class="page-hero">
-    <h1>Serial Codes Validator</h1>
-    <p>
-      Enter your verification code below to confirm product authenticity and review the latest validation details.
-    </p>
+  <section class="hero">
+    <div class="container">
+      <h1>Serial Codes Validator</h1>
+      <p>
+        Verify your official product code and review the latest validation status, entry date, and usage count.
+      </p>
+    </div>
   </section>
 
-  <main class="validator-section">
-    <section class="validator-card">
-      <div class="validator-body">
-        <h2>Verify Product Code</h2>
+  <section class="validator-section">
+    <div class="container validator-grid">
+      <div class="validator-text">
+        <h2>Fast and Reliable Product Verification</h2>
         <p>
-          Use the official verification code printed on your product packaging. Approved codes will return the code status, entry date, and usage count.
+          Bluerexall provides a direct verification system for official product codes. This tool helps users confirm authenticity through our validation service.
         </p>
+        <p>
+          Enter the verification code exactly as printed on the product packaging. Approved codes will return a verified result along with the recorded entry date and usage count.
+        </p>
+        <p>
+          If the code is invalid, the system will notify you immediately so you can review the code and try again.
+        </p>
+      </div>
+
+      <div class="validator-card">
+        <h3>Verify Product Code</h3>
 
         <div class="form-group">
           <label for="verifyCode">Enter Verification Code</label>
@@ -296,21 +334,36 @@
             placeholder="Example: 8F76BB36N"
             autocomplete="off"
             spellcheck="false"
-          />
+          >
         </div>
 
-        <div class="actions">
-          <button type="button" onclick="verifyCode()">Verify Code</button>
-        </div>
+        <button type="button" class="verify-btn" onclick="verifyCode()">Verify Code</button>
 
-        <p class="helper-text">
-          Only official Bluerexall verification codes are supported in this validator.
+        <p class="helper-note">
+          Only official Bluerexall verification codes are supported.
         </p>
 
         <div id="resultBox" class="result" aria-live="polite"></div>
+
+        <div class="info-list">
+          <div class="info-item">
+            <strong>System Type</strong>
+            Secure Product Verification
+          </div>
+
+          <div class="info-item">
+            <strong>Validation Result</strong>
+            Code Status, Entry Date, and Usage Count
+          </div>
+
+          <div class="info-item">
+            <strong>Access</strong>
+            Official Bluerexall Verification Page
+          </div>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <footer>
     <p>© 2026 Bluerexall. All rights reserved.</p>
@@ -367,5 +420,6 @@
       }
     }
   </script>
+
 </body>
 </html>
