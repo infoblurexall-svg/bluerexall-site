@@ -13,7 +13,7 @@ export async function onRequestPost(context) {
       );
     }
 
-    const raw = await context.env.BLUEREXALL_CODES.get(code);
+    const raw = await context.env.CODES_KV.get(code);
 
     if (!raw) {
       return Response.json(
@@ -33,7 +33,7 @@ export async function onRequestPost(context) {
       lastUsedAt: new Date().toISOString()
     };
 
-    await context.env.BLUEREXALL_CODES.put(
+    await context.env.CODES_KV.put(
       code,
       JSON.stringify(updatedRecord)
     );
