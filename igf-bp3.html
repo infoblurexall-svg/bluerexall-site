@@ -19,21 +19,65 @@
       line-height: 1.7;
     }
 
-    header {
-      text-align: center;
-      padding: 40px 20px 30px;
-      background: #111827;
+    header.site-header {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
-    header h1 {
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 22px 0;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      font-weight: 500;
+      text-decoration: none;
+      opacity: 0.95;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #cfe8ff;
+    }
+
+    .page-hero {
+      text-align: center;
+      padding: 30px 20px 34px;
+    }
+
+    .page-hero h1 {
       margin: 0;
       font-size: 36px;
       color: #ffffff;
     }
 
-    header p {
-      color: #b8c0cc;
+    .page-hero p {
+      color: #d8e5f3;
       margin-top: 10px;
       font-size: 15px;
     }
@@ -80,6 +124,7 @@
       cursor: pointer;
       border: 1px solid rgba(255,255,255,0.08);
       background: #0f1724;
+      display: block;
     }
 
     .gallery img:hover {
@@ -128,7 +173,7 @@
         grid-template-columns: 1fr;
       }
 
-      header h1 {
+      .page-hero h1 {
         font-size: 30px;
       }
 
@@ -153,15 +198,24 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      header {
-        padding: 30px 15px 24px;
+      .nav {
+        justify-content: center;
+        text-align: center;
       }
 
-      header h1 {
+      .nav-links {
+        justify-content: center;
+      }
+
+      .page-hero {
+        padding: 24px 15px 28px;
+      }
+
+      .page-hero h1 {
         font-size: 26px;
       }
 
-      header p {
+      .page-hero p {
         font-size: 14px;
       }
     }
@@ -170,12 +224,24 @@
 
 <body>
 
-  <header>
-    <h1>IGF-BP3</h1>
-    <p>Research Use Only - Biotechnology Peptide</p>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="logo">Bluerexall</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <div class="page-hero">
+      <h1>IGF-BP3</h1>
+      <p>Research Use Only - Biotechnology Peptide</p>
+    </div>
   </header>
 
-  <div class="page-wrap">
+  <main class="page-wrap">
     <div class="product-layout">
 
       <section class="gallery-box">
@@ -194,28 +260,28 @@
         <h2>About IGF-BP3</h2>
 
         <p>
-          IGF-BP3, or Insulin-like Growth Factor Binding Protein-3, is the principal circulating binding protein within the insulin-like growth factor system and is widely recognized as a major regulator of IGF bioavailability in biological environments. It plays a central role in transporting IGF molecules and controlling how strongly they interact with target tissues and signaling pathways. [web:170][web:171][web:181]
+          IGF-BP3, or Insulin-like Growth Factor Binding Protein-3, is the principal circulating binding protein within the insulin-like growth factor system and is widely recognized as a major regulator of IGF bioavailability in biological environments. It plays a central role in transporting IGF molecules and controlling how strongly they interact with target tissues and signaling pathways.
         </p>
 
         <p>
-          In molecular and endocrine research, IGF-BP3 is studied for both IGF-dependent and IGF-independent biological actions. Beyond simply binding IGF-I and IGF-II, published work shows that IGF-BP3 can influence receptor signaling, cell proliferation, differentiation, apoptosis, and intracellular regulatory networks in ways that make it highly relevant to modern biomedical investigation. [web:170][web:172][web:174]
+          In molecular and endocrine research, IGF-BP3 is studied for both IGF-dependent and IGF-independent biological actions. Beyond simply binding IGF-I and IGF-II, published work shows that IGF-BP3 can influence receptor signaling, cell proliferation, differentiation, apoptosis, and intracellular regulatory networks in ways that make it highly relevant to modern biomedical investigation.
         </p>
 
         <p>
-          Scientific interest in IGF-BP3 extends to studies of growth regulation, metabolism, tissue development, cancer biology, and cellular aging. Research has shown that it can modulate IGF receptor activity, influence ERK and AKT-related pathways, and participate in broader cellular response mechanisms beyond its classic carrier role. [web:175][web:176][web:183]
+          Scientific interest in IGF-BP3 extends to studies of growth regulation, metabolism, tissue development, cancer biology, and cellular aging. Research has shown that it can modulate IGF receptor activity, influence ERK and AKT-related pathways, and participate in broader cellular response mechanisms beyond its classic carrier role.
         </p>
 
         <p>
-          Bluerexall manufactures IGF-BP3 as part of its advanced peptide and biotechnology research portfolio, with a focus on high-purity products intended strictly for research use only. In laboratory and scientific settings, this biomolecule is positioned for applications where consistency, controlled handling, and research-grade quality standards are essential. [web:170][web:181]
+          Bluerexall manufactures IGF-BP3 as part of its advanced peptide and biotechnology research portfolio, with a focus on high-purity products intended strictly for research use only. In laboratory and scientific settings, this biomolecule is positioned for applications where consistency, controlled handling, and research-grade quality standards are essential.
         </p>
 
         <p>
-          IGF-BP3 is not approved for human consumption, medical treatment, or unregulated therapeutic use, and it should only be handled within appropriate scientific frameworks. Its continued importance lies in the insight it provides into growth factor regulation, extracellular signaling control, and the complex biology of the IGF system. [web:170][web:171][web:172]
+          IGF-BP3 is not approved for human consumption, medical treatment, or unregulated therapeutic use, and it should only be handled within appropriate scientific frameworks. Its continued importance lies in the insight it provides into growth factor regulation, extracellular signaling control, and the complex biology of the IGF system.
         </p>
       </section>
 
     </div>
-  </div>
+  </main>
 
   <footer>
     Contact: <a href="mailto:info.bluerexall@gmail.com">info.bluerexall@gmail.com</a>

@@ -19,21 +19,65 @@
       line-height: 1.7;
     }
 
-    header {
-      text-align: center;
-      padding: 40px 20px 30px;
-      background: #111827;
+    header.site-header {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
-    header h1 {
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 22px 0;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      font-weight: 500;
+      text-decoration: none;
+      opacity: 0.95;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #cfe8ff;
+    }
+
+    .page-hero {
+      text-align: center;
+      padding: 30px 20px 34px;
+    }
+
+    .page-hero h1 {
       margin: 0;
       font-size: 36px;
       color: #ffffff;
     }
 
-    header p {
-      color: #b8c0cc;
+    .page-hero p {
+      color: #d8e5f3;
       margin-top: 10px;
       font-size: 15px;
     }
@@ -80,6 +124,7 @@
       cursor: pointer;
       border: 1px solid rgba(255,255,255,0.08);
       background: #0f1724;
+      display: block;
     }
 
     .gallery img:hover {
@@ -128,7 +173,7 @@
         grid-template-columns: 1fr;
       }
 
-      header h1 {
+      .page-hero h1 {
         font-size: 30px;
       }
 
@@ -153,15 +198,24 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      header {
-        padding: 30px 15px 24px;
+      .nav {
+        justify-content: center;
+        text-align: center;
       }
 
-      header h1 {
+      .nav-links {
+        justify-content: center;
+      }
+
+      .page-hero {
+        padding: 24px 15px 28px;
+      }
+
+      .page-hero h1 {
         font-size: 26px;
       }
 
-      header p {
+      .page-hero p {
         font-size: 14px;
       }
     }
@@ -170,12 +224,24 @@
 
 <body>
 
-  <header>
-    <h1>MGF-PEG</h1>
-    <p>Research Use Only - Biotechnology Peptide</p>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="logo">Bluerexall</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <div class="page-hero">
+      <h1>MGF-PEG</h1>
+      <p>Research Use Only - Biotechnology Peptide</p>
+    </div>
   </header>
 
-  <div class="page-wrap">
+  <main class="page-wrap">
     <div class="product-layout">
 
       <section class="gallery-box">
@@ -193,28 +259,28 @@
         <h2>About MGF-PEG</h2>
 
         <p>
-          MGF-PEG, or Pegylated Mechano Growth Factor, is a modified peptide derived from the MGF lineage, which is associated with IGF-1 splice-variant biology and mechanical stress-responsive signaling in tissue research. The PEGylation process is used to improve peptide stability and prolong its availability in experimental systems compared with native MGF forms that degrade much more rapidly. [web:186][web:189][web:197]
+          MGF-PEG, or Pegylated Mechano Growth Factor, is a modified peptide derived from the MGF lineage, which is associated with IGF-1 splice-variant biology and mechanical stress-responsive signaling in tissue research. The PEGylation process is used to improve peptide stability and prolong its availability in experimental systems compared with native MGF forms that degrade much more rapidly.
         </p>
 
         <p>
-          In laboratory and preclinical research, MGF-PEG is commonly discussed in relation to muscle-response pathways, satellite-cell biology, and tissue-repair signaling. Researchers investigate it in models designed to study how mechanically stressed or damaged tissue may trigger growth-related molecular responses and adaptive cellular behavior. [web:189][web:193][web:199]
+          In laboratory and preclinical research, MGF-PEG is commonly discussed in relation to muscle-response pathways, satellite-cell biology, and tissue-repair signaling. Researchers investigate it in models designed to study how mechanically stressed or damaged tissue may trigger growth-related molecular responses and adaptive cellular behavior.
         </p>
 
         <p>
-          Because pegylation extends the experimental window of the molecule, MGF-PEG is often referenced in research focused on sustained peptide exposure and longer observation of downstream biological effects. Published research-oriented materials describe interest in areas such as myogenic signaling, extracellular-matrix adaptation, regeneration-related pathways, and broader IGF-linked tissue-response mechanisms. [web:189][web:193][web:197]
+          Because pegylation extends the experimental window of the molecule, MGF-PEG is often referenced in research focused on sustained peptide exposure and longer observation of downstream biological effects. Published research-oriented materials describe interest in areas such as myogenic signaling, extracellular-matrix adaptation, regeneration-related pathways, and broader IGF-linked tissue-response mechanisms.
         </p>
 
         <p>
-          Bluerexall manufactures MGF-PEG as part of its advanced peptide research compound portfolio, with a focus on high-purity biotechnology products intended strictly for research use only. In professional scientific settings, the compound is positioned for analytical and laboratory applications where consistency, controlled handling, and research-grade standards are essential. [web:189][web:198]
+          Bluerexall manufactures MGF-PEG as part of its advanced peptide research compound portfolio, with a focus on high-purity biotechnology products intended strictly for research use only. In professional scientific settings, the compound is positioned for analytical and laboratory applications where consistency, controlled handling, and research-grade standards are essential.
         </p>
 
         <p>
-          MGF-PEG is not approved for human consumption, medical treatment, or unregulated therapeutic use, and it should only be handled within appropriate research frameworks. Its ongoing value lies in the insight it offers into mechano-responsive growth signaling, peptide stabilization strategies, and molecular pathways involved in tissue adaptation and repair. [web:189][web:193][web:198]
+          MGF-PEG is not approved for human consumption, medical treatment, or unregulated therapeutic use, and it should only be handled within appropriate research frameworks. Its ongoing value lies in the insight it offers into mechano-responsive growth signaling, peptide stabilization strategies, and molecular pathways involved in tissue adaptation and repair.
         </p>
       </section>
 
     </div>
-  </div>
+  </main>
 
   <footer>
     Contact: <a href="mailto:info.bluerexall@gmail.com">info.bluerexall@gmail.com</a>

@@ -19,21 +19,65 @@
       line-height: 1.7;
     }
 
-    header {
-      text-align: center;
-      padding: 40px 20px 30px;
-      background: #111827;
+    header.site-header {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
-    header h1 {
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 22px 0;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      font-weight: 500;
+      text-decoration: none;
+      opacity: 0.95;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #cfe8ff;
+    }
+
+    .page-hero {
+      text-align: center;
+      padding: 30px 20px 34px;
+    }
+
+    .page-hero h1 {
       margin: 0;
       font-size: 36px;
       color: #ffffff;
     }
 
-    header p {
-      color: #b8c0cc;
+    .page-hero p {
+      color: #d8e5f3;
       margin-top: 10px;
       font-size: 15px;
     }
@@ -80,6 +124,7 @@
       cursor: pointer;
       border: 1px solid rgba(255,255,255,0.08);
       background: #0f1724;
+      display: block;
     }
 
     .gallery img:hover {
@@ -128,7 +173,7 @@
         grid-template-columns: 1fr;
       }
 
-      header h1 {
+      .page-hero h1 {
         font-size: 30px;
       }
 
@@ -153,15 +198,24 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      header {
-        padding: 30px 15px 24px;
+      .nav {
+        justify-content: center;
+        text-align: center;
       }
 
-      header h1 {
+      .nav-links {
+        justify-content: center;
+      }
+
+      .page-hero {
+        padding: 24px 15px 28px;
+      }
+
+      .page-hero h1 {
         font-size: 26px;
       }
 
-      header p {
+      .page-hero p {
         font-size: 14px;
       }
     }
@@ -170,12 +224,24 @@
 
 <body>
 
-  <header>
-    <h1>Examorelin</h1>
-    <p>Research Use Only - Biotechnology Peptide</p>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="logo">Bluerexall</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <div class="page-hero">
+      <h1>Examorelin</h1>
+      <p>Research Use Only - Biotechnology Peptide</p>
+    </div>
   </header>
 
-  <div class="page-wrap">
+  <main class="page-wrap">
     <div class="product-layout">
 
       <section class="gallery-box">
@@ -194,28 +260,28 @@
         <h2>About Examorelin</h2>
 
         <p>
-          Examorelin, also known as Hexarelin, is a synthetic growth hormone secretagogue that has become well recognized in peptide and endocrine research for its potent activity at the ghrelin or growth hormone secretagogue receptor. It belongs to the GHRP class and is studied as a receptor-targeting peptide involved in neuroendocrine signaling. [web:125][web:126][web:127]
+          Examorelin, also known as Hexarelin, is a synthetic growth hormone secretagogue that has become well recognized in peptide and endocrine research for its potent activity at the ghrelin or growth hormone secretagogue receptor. It belongs to the GHRP class and is studied as a receptor-targeting peptide involved in neuroendocrine signaling.
         </p>
 
         <p>
-          In laboratory settings, Examorelin is investigated for its ability to stimulate growth hormone release through GHSR-mediated pathways and for its value in studying pituitary responsiveness and hormonal pulsatility. Research has also noted that this peptide can influence additional endocrine markers such as prolactin, ACTH, and cortisol in human studies, highlighting its relevance in broader neuroendocrine investigation. [web:126][web:127]
+          In laboratory settings, Examorelin is investigated for its ability to stimulate growth hormone release through GHSR-mediated pathways and for its value in studying pituitary responsiveness and hormonal pulsatility. Research has also noted that this peptide can influence additional endocrine markers such as prolactin, ACTH, and cortisol in human studies, highlighting its relevance in broader neuroendocrine investigation.
         </p>
 
         <p>
-          Because of its strong receptor activity, Examorelin is frequently referenced as one of the more prominent compounds in GHRP-focused research. Scientific interest in this peptide has centered on receptor pharmacology, signaling intensity, endocrine feedback mechanisms, and the phenomenon of partial tolerance with repeated exposure over time. [web:125][web:126]
+          Because of its strong receptor activity, Examorelin is frequently referenced as one of the more prominent compounds in GHRP-focused research. Scientific interest in this peptide has centered on receptor pharmacology, signaling intensity, endocrine feedback mechanisms, and the phenomenon of partial tolerance with repeated exposure over time.
         </p>
 
         <p>
-          Bluerexall manufactures Examorelin as part of its advanced peptide research compound portfolio, with a focus on high-purity biotechnology products intended strictly for research use only. Within laboratory and scientific environments, the compound is positioned for research applications where purity, consistency, and peptide-focused analytical standards are essential. [web:127]
+          Bluerexall manufactures Examorelin as part of its advanced peptide research compound portfolio, with a focus on high-purity biotechnology products intended strictly for research use only. Within laboratory and scientific environments, the compound is positioned for research applications where purity, consistency, and peptide-focused analytical standards are essential.
         </p>
 
         <p>
-          Examorelin is not approved for human consumption, routine therapeutic use, or unregulated medical application, and it should only be handled within appropriate research frameworks. Its continued importance lies in the insight it provides into ghrelin receptor pharmacology, growth hormone signaling, and peptide-driven endocrine response mechanisms. [web:126][web:127]
+          Examorelin is not approved for human consumption, routine therapeutic use, or unregulated medical application, and it should only be handled within appropriate research frameworks. Its continued importance lies in the insight it provides into ghrelin receptor pharmacology, growth hormone signaling, and peptide-driven endocrine response mechanisms.
         </p>
       </section>
 
     </div>
-  </div>
+  </main>
 
   <footer>
     Contact: <a href="mailto:info.bluerexall@gmail.com">info.bluerexall@gmail.com</a>

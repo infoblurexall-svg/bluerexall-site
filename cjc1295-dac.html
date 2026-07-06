@@ -19,21 +19,65 @@
       line-height: 1.7;
     }
 
-    header {
-      text-align: center;
-      padding: 40px 20px 30px;
-      background: #111827;
+    header.site-header {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
-    header h1 {
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 22px 0;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      font-weight: 500;
+      text-decoration: none;
+      opacity: 0.95;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #cfe8ff;
+    }
+
+    .page-hero {
+      text-align: center;
+      padding: 30px 20px 34px;
+    }
+
+    .page-hero h1 {
       margin: 0;
       font-size: 36px;
       color: #ffffff;
     }
 
-    header p {
-      color: #b8c0cc;
+    .page-hero p {
+      color: #d8e5f3;
       margin-top: 10px;
       font-size: 15px;
     }
@@ -80,6 +124,7 @@
       cursor: pointer;
       border: 1px solid rgba(255,255,255,0.08);
       background: #0f1724;
+      display: block;
     }
 
     .gallery img:hover {
@@ -128,7 +173,7 @@
         grid-template-columns: 1fr;
       }
 
-      header h1 {
+      .page-hero h1 {
         font-size: 30px;
       }
 
@@ -153,15 +198,24 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      header {
-        padding: 30px 15px 24px;
+      .nav {
+        justify-content: center;
+        text-align: center;
       }
 
-      header h1 {
+      .nav-links {
+        justify-content: center;
+      }
+
+      .page-hero {
+        padding: 24px 15px 28px;
+      }
+
+      .page-hero h1 {
         font-size: 26px;
       }
 
-      header p {
+      .page-hero p {
         font-size: 14px;
       }
     }
@@ -170,12 +224,24 @@
 
 <body>
 
-  <header>
-    <h1>CJC-1295 DAC</h1>
-    <p>Research Use Only - Biotechnology Peptide</p>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="logo">Bluerexall</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <div class="page-hero">
+      <h1>CJC-1295 DAC</h1>
+      <p>Research Use Only - Biotechnology Peptide</p>
+    </div>
   </header>
 
-  <div class="page-wrap">
+  <main class="page-wrap">
     <div class="product-layout">
 
       <section class="gallery-box">
@@ -194,28 +260,28 @@
         <h2>About CJC-1295 DAC</h2>
 
         <p>
-          CJC-1295 DAC is a long-acting synthetic analog of growth hormone-releasing hormone (GHRH) that has become well known in endocrine and peptide research because its Drug Affinity Complex enables extended activity compared with shorter-acting GHRH analogs. Its design allows binding to circulating serum albumin, which markedly prolongs its presence in the bloodstream. [web:110][web:119][web:121]
+          CJC-1295 DAC is a long-acting synthetic analog of growth hormone-releasing hormone (GHRH) that has become well known in endocrine and peptide research because its Drug Affinity Complex enables extended activity compared with shorter-acting GHRH analogs. Its design allows binding to circulating serum albumin, which markedly prolongs its presence in the bloodstream.
         </p>
 
         <p>
-          In research settings, CJC-1295 DAC is studied for its ability to sustain growth hormone signaling over longer periods than non-DAC forms. Published human data reported dose-dependent increases in growth hormone for 6 days or more and increases in IGF-1 lasting roughly 9 to 11 days after a single injection, with an estimated half-life of about 5.8 to 8.1 days. [web:110]
+          In research settings, CJC-1295 DAC is studied for its ability to sustain growth hormone signaling over longer periods than non-DAC forms. Published human data reported dose-dependent increases in growth hormone for 6 days or more and increases in IGF-1 lasting roughly 9 to 11 days after a single injection, with an estimated half-life of about 5.8 to 8.1 days.
         </p>
 
         <p>
-          Because of these pharmacokinetic properties, CJC-1295 DAC is widely referenced in scientific discussions involving pituitary function, GH axis regulation, and peptide-based endocrine modulation. It is particularly relevant in studies that compare short-acting and long-acting GHRH analog strategies and explore how prolonged signaling may influence downstream hormonal responses. [web:110][web:112][web:120]
+          Because of these pharmacokinetic properties, CJC-1295 DAC is widely referenced in scientific discussions involving pituitary function, GH axis regulation, and peptide-based endocrine modulation. It is particularly relevant in studies that compare short-acting and long-acting GHRH analog strategies and explore how prolonged signaling may influence downstream hormonal responses.
         </p>
 
         <p>
-          Bluerexall manufactures CJC-1295 DAC as part of its advanced peptide research compound portfolio, with an emphasis on high-purity biotechnology products intended strictly for research use only. Within laboratory environments, the compound is positioned for scientific work where consistency, purity, and controlled research standards are essential. [web:110][web:121]
+          Bluerexall manufactures CJC-1295 DAC as part of its advanced peptide research compound portfolio, with an emphasis on high-purity biotechnology products intended strictly for research use only. Within laboratory environments, the compound is positioned for scientific work where consistency, purity, and controlled research standards are essential.
         </p>
 
         <p>
-          CJC-1295 DAC is not approved for human consumption, routine therapeutic use, or unregulated medical application, and it should only be used within appropriate research frameworks. Its continuing relevance lies in the insight it provides into growth hormone regulation, peptide engineering, and long-acting endocrine signaling mechanisms. [web:110][web:118]
+          CJC-1295 DAC is not approved for human consumption, routine therapeutic use, or unregulated medical application, and it should only be used within appropriate research frameworks. Its continuing relevance lies in the insight it provides into growth hormone regulation, peptide engineering, and long-acting endocrine signaling mechanisms.
         </p>
       </section>
 
     </div>
-  </div>
+  </main>
 
   <footer>
     Contact: <a href="mailto:info.bluerexall@gmail.com">info.bluerexall@gmail.com</a>

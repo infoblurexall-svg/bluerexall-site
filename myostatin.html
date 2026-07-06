@@ -19,21 +19,66 @@
       line-height: 1.7;
     }
 
-    header {
-      text-align: center;
-      padding: 40px 20px 30px;
-      background: #111827;
+    header.site-header {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 36px;
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 22px 0;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
       color: #ffffff;
     }
 
-    header p {
-      color: #b8c0cc;
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      font-weight: 500;
+      text-decoration: none;
+      opacity: 0.95;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #cfe8ff;
+    }
+
+    .page-hero {
+      text-align: center;
+      padding: 30px 20px 34px;
+    }
+
+    .page-hero h1 {
+      margin: 0;
+      font-size: 36px;
+      color: #ffffff;
+      text-transform: capitalize;
+    }
+
+    .page-hero p {
+      color: #d8e5f3;
       margin-top: 10px;
       font-size: 15px;
     }
@@ -79,7 +124,8 @@
       transition: 0.3s ease;
       cursor: pointer;
       border: 1px solid rgba(255,255,255,0.08);
-      background: #1f2937;
+      background: #0f1724;
+      display: block;
     }
 
     .gallery img:hover {
@@ -128,7 +174,7 @@
         grid-template-columns: 1fr;
       }
 
-      header h1 {
+      .page-hero h1 {
         font-size: 30px;
       }
 
@@ -153,15 +199,24 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      header {
-        padding: 30px 15px 24px;
+      .nav {
+        justify-content: center;
+        text-align: center;
       }
 
-      header h1 {
+      .nav-links {
+        justify-content: center;
+      }
+
+      .page-hero {
+        padding: 24px 15px 28px;
+      }
+
+      .page-hero h1 {
         font-size: 26px;
       }
 
-      header p {
+      .page-hero p {
         font-size: 14px;
       }
     }
@@ -170,12 +225,24 @@
 
 <body>
 
-  <header>
-    <h1>Myostatin</h1>
-    <p>Research Use Only - Biotechnology Protein</p>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="logo">Bluerexall</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <div class="page-hero">
+      <h1>Myostatin</h1>
+      <p>Research Use Only - Biotechnology Protein</p>
+    </div>
   </header>
 
-  <div class="page-wrap">
+  <main class="page-wrap">
     <div class="product-layout">
 
       <section class="gallery-box">
@@ -185,7 +252,6 @@
           <img src="images/myostatin/2.png" alt="Myostatin product image 2">
           <img src="images/myostatin/3.png" alt="Myostatin product image 3">
           <img src="images/myostatin/4.png" alt="Myostatin product image 4">
-          <img src="images/myostatin/5.png" alt="Myostatin product image 5">
         </div>
       </section>
 
@@ -194,28 +260,24 @@
         <h2>About Myostatin</h2>
 
         <p>
-          Myostatin, also known as Growth Differentiation Factor-8 (GDF8), is a well-established negative regulator of skeletal muscle growth and one of the most closely studied proteins in muscle biology research. As a member of the TGF-beta superfamily, it plays a central role in limiting muscle development and maintaining balance in muscle mass regulation. [web:210][web:212][web:220]
+          Myostatin is a naturally occurring regulatory protein that is widely recognized in modern muscle biology research for its role in limiting skeletal muscle growth. As part of the transforming growth factor-beta family, it functions as a key signaling molecule involved in maintaining muscular balance. Researchers often study myostatin to better understand how the body controls muscle size, tissue adaptation, and cellular growth behavior in different biological environments.
         </p>
 
         <p>
-          In laboratory and molecular research, myostatin is primarily investigated for its inhibitory effects on muscle cell proliferation, differentiation, and hypertrophic signaling. Published studies show that reduced myostatin activity is associated with increased muscle mass, while elevated or sustained signaling can contribute to muscle atrophy and protein breakdown pathways. [web:212][web:219][web:220]
+          In scientific and laboratory settings, myostatin is frequently examined for its relationship with muscle-cell development, regenerative pathways, and anabolic-catabolic signaling mechanisms. Because it acts as a negative regulator of muscle formation, it has become an important target in studies that investigate how reduced signaling may influence muscle expansion, repair processes, and structural protein activity. This makes myostatin highly relevant in advanced biomedical and physiological research models.
         </p>
 
         <p>
-          Because of this central regulatory role, myostatin is widely studied in experimental models involving muscle wasting, hypertrophy, regenerative biology, and anabolic-catabolic pathway control. Research also examines how myostatin interacts with activin-related signaling, Akt regulation, proteolytic systems, and tissue adaptation mechanisms in skeletal muscle. [web:215][web:219][web:223]
+          Research interest in myostatin also extends beyond basic muscle growth alone. It is often explored in connection with tissue remodeling, protein turnover, metabolic response, and interactions with related pathways such as activins and other growth regulators. By analyzing how myostatin behaves under different experimental conditions, researchers can gain broader insight into the molecular mechanisms that influence muscular maintenance, degeneration, and recovery-related cellular responses.
         </p>
 
         <p>
-          Bluerexall manufactures Myostatin as part of its advanced biotechnology research portfolio, with a focus on high-purity proteins intended strictly for research use only. In scientific and laboratory settings, this biomolecule is positioned for analytical and experimental applications where consistency, controlled handling, and research-grade quality standards are essential. [web:210][web:220]
-        </p>
-
-        <p>
-          Myostatin is not approved for human consumption or unregulated medical use, and it should only be handled within appropriate scientific frameworks. Its continued importance lies in the insight it provides into muscle growth limitation, tissue signaling control, and the molecular basis of skeletal muscle adaptation and loss. [web:210][web:219][web:220]
+          Bluerexall offers Myostatin as part of its biotechnology research portfolio with a strong focus on purity, consistency, and research-grade handling standards. This product is intended strictly for research use only and is positioned for professional laboratory applications where controlled analytical conditions are essential. Its value in research lies in the insight it provides into muscle regulation, signaling balance, and the biological systems that govern tissue growth and limitation.
         </p>
       </section>
 
     </div>
-  </div>
+  </main>
 
   <footer>
     Contact: <a href="mailto:info.bluerexall@gmail.com">info.bluerexall@gmail.com</a>

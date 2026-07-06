@@ -19,21 +19,65 @@
       line-height: 1.7;
     }
 
-    header {
-      text-align: center;
-      padding: 40px 20px 30px;
-      background: #111827;
+    header.site-header {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
-    header h1 {
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 22px 0;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      font-weight: 500;
+      text-decoration: none;
+      opacity: 0.95;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #cfe8ff;
+    }
+
+    .page-hero {
+      text-align: center;
+      padding: 30px 20px 34px;
+    }
+
+    .page-hero h1 {
       margin: 0;
       font-size: 36px;
       color: #ffffff;
     }
 
-    header p {
-      color: #b8c0cc;
+    .page-hero p {
+      color: #d8e5f3;
       margin-top: 10px;
       font-size: 15px;
     }
@@ -80,6 +124,7 @@
       cursor: pointer;
       border: 1px solid rgba(255,255,255,0.08);
       background: #1f2937;
+      display: block;
     }
 
     .gallery img:hover {
@@ -128,7 +173,7 @@
         grid-template-columns: 1fr;
       }
 
-      header h1 {
+      .page-hero h1 {
         font-size: 30px;
       }
 
@@ -153,15 +198,24 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      header {
-        padding: 30px 15px 24px;
+      .nav {
+        justify-content: center;
+        text-align: center;
       }
 
-      header h1 {
+      .nav-links {
+        justify-content: center;
+      }
+
+      .page-hero {
+        padding: 24px 15px 28px;
+      }
+
+      .page-hero h1 {
         font-size: 26px;
       }
 
-      header p {
+      .page-hero p {
         font-size: 14px;
       }
     }
@@ -170,12 +224,24 @@
 
 <body>
 
-  <header>
-    <h1>Follistatin</h1>
-    <p>Research Use Only - Biotechnology Protein</p>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="logo">Bluerexall</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <div class="page-hero">
+      <h1>Follistatin</h1>
+      <p>Research Use Only - Biotechnology Protein</p>
+    </div>
   </header>
 
-  <div class="page-wrap">
+  <main class="page-wrap">
     <div class="product-layout">
 
       <section class="gallery-box">
@@ -193,28 +259,28 @@
         <h2>About Follistatin</h2>
 
         <p>
-          Follistatin is a secreted glycoprotein that has earned major scientific attention because of its high-affinity binding to several members of the TGF-beta superfamily, especially activins and myostatin. Through these interactions, it is recognized as an important regulator of muscle biology, cellular differentiation, and signal-balancing processes in complex biological systems. [web:149][web:150][web:141]
+          Follistatin is a secreted glycoprotein that has earned major scientific attention because of its high-affinity binding to several members of the TGF-beta superfamily, especially activins and myostatin. Through these interactions, it is recognized as an important regulator of muscle biology, cellular differentiation, and signal-balancing processes in complex biological systems.
         </p>
 
         <p>
-          In molecular and preclinical research, follistatin is widely studied for its ability to inhibit pathways that normally restrain skeletal muscle growth. This has made it a central molecule in investigations involving myostatin blockade, muscle hypertrophy, tissue remodeling, and the broader regulation of protein signaling networks linked to development and repair. [web:141][web:142][web:147]
+          In molecular and preclinical research, follistatin is widely studied for its ability to inhibit pathways that normally restrain skeletal muscle growth. This has made it a central molecule in investigations involving myostatin blockade, muscle hypertrophy, tissue remodeling, and the broader regulation of protein signaling networks linked to development and repair.
         </p>
 
         <p>
-          Scientific interest in follistatin extends beyond muscle biology alone. Published research also describes its relevance to bone metabolism, vascularization, regeneration, and other cellular environments influenced by activin and related ligands, which is why it remains a highly referenced molecule in modern biomedical research. [web:149][web:154][web:144]
+          Scientific interest in follistatin extends beyond muscle biology alone. Published research also describes its relevance to bone metabolism, vascularization, regeneration, and other cellular environments influenced by activin and related ligands, which is why it remains a highly referenced molecule in modern biomedical research.
         </p>
 
         <p>
-          Bluerexall manufactures Follistatin as part of its advanced peptide and biotechnology research portfolio, with a focus on high-purity products intended strictly for research use only. Within professional laboratory settings, this compound is positioned for scientific work requiring product consistency, controlled handling, and research-oriented quality standards. [web:141][web:149]
+          Bluerexall manufactures Follistatin as part of its advanced peptide and biotechnology research portfolio, with a focus on high-purity products intended strictly for research use only. Within professional laboratory settings, this compound is positioned for scientific work requiring product consistency, controlled handling, and research-oriented quality standards.
         </p>
 
         <p>
-          Follistatin is not approved for human consumption or unregulated therapeutic use, and it should only be used within appropriate scientific and laboratory frameworks. Its ongoing importance lies in the insight it provides into myostatin-related regulation, activin biology, tissue signaling, and the molecular control of growth-related pathways. [web:141][web:150][web:152]
+          Follistatin is not approved for human consumption or unregulated therapeutic use, and it should only be used within appropriate scientific and laboratory frameworks. Its ongoing importance lies in the insight it provides into myostatin-related regulation, activin biology, tissue signaling, and the molecular control of growth-related pathways.
         </p>
       </section>
 
     </div>
-  </div>
+  </main>
 
   <footer>
     Contact: <a href="mailto:info.bluerexall@gmail.com">info.bluerexall@gmail.com</a>
