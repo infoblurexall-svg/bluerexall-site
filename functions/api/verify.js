@@ -26,11 +26,30 @@ export async function onRequestPost(context) {
     }
 
     const record = JSON.parse(raw);
+    const used = Number(record.used || 0);
+    const maxUses = Number(record.maxUses || 3);
+
+    if (used >= maxUses) {
+      return Response.json(
+        {
+          ok: false,
+          code,
+          message: "This code has already been used before.",
+          used,
+          maxUses,
+          lastUsedAt: record.lastUsedAt || null,
+          status: "used_up"
+        },
+        { status: 409 }
+      );
+    }
 
     const updatedRecord = {
       ...record,
-      used: Number(record.used || 0) + 1,
-      lastUsedAt: new Date().toISOString()
+      used: used + 1,
+      maxUses,
+      lastUsedAt: new Date().toISOString(),
+      status: used + 1 >= maxUses ? "used_up" : "valid"
     };
 
     await context.env.CODES_KV.put(
@@ -44,8 +63,10 @@ export async function onRequestPost(context) {
         code,
         message: "This product has been verified by the Bluerexall team.",
         used: updatedRecord.used,
+        maxUses: updatedRecord.maxUses,
+        remainingUses: updatedRecord.maxUses - updatedRecord.used,
         lastUsedAt: updatedRecord.lastUsedAt,
-        status: updatedRecord.status || "valid"
+        status: updatedRecord.status
       },
       { status: 200 }
     );
