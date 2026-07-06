@@ -5,7 +5,10 @@ export async function onRequestPost(context) {
 
     if (!code) {
       return Response.json(
-        { ok: false, message: "لطفاً کد Verify را وارد کنید." },
+        {
+          ok: false,
+          message: "Please enter a verification code."
+        },
         { status: 400 }
       );
     }
@@ -14,21 +17,44 @@ export async function onRequestPost(context) {
 
     if (!raw) {
       return Response.json(
-        { ok: false, message: "کد اشتباه می‌باشد. کد را بررسی کنید." },
+        {
+          ok: false,
+          message: "Invalid code. Please check the code and try again."
+        },
         { status: 404 }
       );
     }
 
     const record = JSON.parse(raw);
 
-    return Response.json({
-      ok: true,
+    const updatedRecord = {
+      ...record,
+      used: Number(record.used || 0) + 1,
+      lastUsedAt: new Date().toISOString()
+    };
+
+    await context.env.BLUEREXALL_CODES.put(
       code,
-      message: "این محصول مورد تایید توسط تیم Bluerexall می‌باشد."
-    });
+      JSON.stringify(updatedRecord)
+    );
+
+    return Response.json(
+      {
+        ok: true,
+        code,
+        message: "This product has been verified by the Bluerexall team.",
+        used: updatedRecord.used,
+        lastUsedAt: updatedRecord.lastUsedAt,
+        status: updatedRecord.status || "valid"
+      },
+      { status: 200 }
+    );
   } catch (error) {
     return Response.json(
-      { ok: false, message: "خطا در بررسی کد." },
+      {
+        ok: false,
+        message: "Unable to verify the code right now. Please try again later."
+      },
       { status: 500 }
     );
   }

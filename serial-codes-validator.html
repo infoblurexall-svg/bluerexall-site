@@ -1,37 +1,432 @@
-<script>
-  const form = document.getElementById("validatorForm");
-  const input = document.getElementById("verifyCode");
-  const result = document.getElementById("result");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const code = input.value.trim();
-
-    result.className = "result-box";
-    result.textContent = "در حال بررسی...";
-
-    try {
-      const response = await fetch("/api/verify", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ code })
-      });
-
-      const data = await response.json();
-
-      if (data.ok) {
-        result.className = "result-box success";
-        result.innerHTML = `<strong>${data.code}</strong><br>${data.message}`;
-      } else {
-        result.className = "result-box error";
-        result.textContent = data.message;
-      }
-    } catch (err) {
-      result.className = "result-box error";
-      result.textContent = "ارتباط با سرور برقرار نشد.";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serial Codes Validator - Bluerexall</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-  });
-</script>
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #eef4ff, #f8fbff);
+      color: #1b2b45;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
+      padding: 24px 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #fff;
+      font-weight: 500;
+      opacity: 0.95;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #cfe8ff;
+    }
+
+    .nav-links a[aria-current="page"] {
+      color: #ffffff;
+      font-weight: 700;
+      border-bottom: 2px solid #ffffff;
+      padding-bottom: 2px;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      background: linear-gradient(135deg, #0d3b66 0%, #1d6fb8 100%);
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: auto;
+      font-size: 1.08rem;
+      opacity: 0.95;
+    }
+
+    .validator-section {
+      padding: 80px 0;
+    }
+
+    .validator-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .validator-text h2 {
+      font-size: 2rem;
+      color: #0d3b66;
+      margin-bottom: 20px;
+    }
+
+    .validator-text p {
+      margin-bottom: 18px;
+      color: #33415c;
+      font-size: 1rem;
+    }
+
+    .validator-card {
+      background: #fff;
+      padding: 35px 28px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(13, 59, 102, 0.08);
+      border: 1px solid rgba(13, 59, 102, 0.08);
+    }
+
+    .validator-card h3 {
+      color: #0d3b66;
+      margin-bottom: 18px;
+      font-size: 1.4rem;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #0d3b66;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #d9e5f2;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      color: #1b2b45;
+      background: #f9fbff;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    .form-group input:focus {
+      border-color: #1d6fb8;
+      box-shadow: 0 0 0 4px rgba(29, 111, 184, 0.12);
+      background: #fff;
+    }
+
+    .verify-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
+      padding: 14px 26px;
+      border-radius: 12px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-family: inherit;
+      font-size: 0.98rem;
+    }
+
+    .verify-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(13, 59, 102, 0.15);
+    }
+
+    .helper-note {
+      margin-top: 14px;
+      color: #5b6b84;
+      font-size: 0.95rem;
+    }
+
+    .result {
+      margin-top: 22px;
+      padding: 18px 16px;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      display: none;
+      font-size: 0.97rem;
+      line-height: 1.8;
+    }
+
+    .result.show {
+      display: block;
+    }
+
+    .result.success {
+      background: #ecfdf3;
+      border-color: #9ed8b4;
+      color: #166534;
+    }
+
+    .result.error {
+      background: #fff1f2;
+      border-color: #f3b0b7;
+      color: #b42318;
+    }
+
+    .info-list {
+      margin-top: 24px;
+    }
+
+    .info-item {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e8eef7;
+    }
+
+    .info-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .info-item strong {
+      display: block;
+      color: #0d3b66;
+      margin-bottom: 5px;
+    }
+
+    footer {
+      background: #0b2744;
+      color: #dce8f7;
+      text-align: center;
+      padding: 28px 15px;
+      margin-top: 70px;
+    }
+
+    @media (max-width: 900px) {
+      .validator-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 70px 0 50px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .validator-text h2,
+      .validator-card h3 {
+        font-size: 1.6rem;
+      }
+
+      .verify-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">Bluerexall</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="serial-codes-validator.html" aria-current="page">Validator</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Serial Codes Validator</h1>
+      <p>
+        Verify your official product code and review the latest validation status, entry date, and usage count.
+      </p>
+    </div>
+  </section>
+
+  <section class="validator-section">
+    <div class="container validator-grid">
+      <div class="validator-text">
+        <h2>Fast and Reliable Product Verification</h2>
+        <p>
+          Bluerexall provides a direct verification system for official product codes. This tool helps users confirm authenticity through our validation service.
+        </p>
+        <p>
+          Enter the verification code exactly as printed on the product packaging. Approved codes will return a verified result along with the recorded entry date and usage count.
+        </p>
+        <p>
+          If the code is invalid, the system will notify you immediately so you can review the code and try again.
+        </p>
+      </div>
+
+      <div class="validator-card">
+        <h3>Verify Product Code</h3>
+
+        <div class="form-group">
+          <label for="verifyCode">Enter Verification Code</label>
+          <input
+            id="verifyCode"
+            type="text"
+            placeholder="Example: 8F76BB36N"
+            autocomplete="off"
+            spellcheck="false"
+          >
+        </div>
+
+        <button type="button" class="verify-btn" onclick="verifyCode()">Verify Code</button>
+
+        <p class="helper-note">
+          Only official Bluerexall verification codes are supported.
+        </p>
+
+        <div id="resultBox" class="result" aria-live="polite"></div>
+
+        <div class="info-list">
+          <div class="info-item">
+            <strong>System Type</strong>
+            Secure Product Verification
+          </div>
+
+          <div class="info-item">
+            <strong>Validation Result</strong>
+            Code Status, Entry Date, and Usage Count
+          </div>
+
+          <div class="info-item">
+            <strong>Access</strong>
+            Official Bluerexall Verification Page
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Bluerexall. All rights reserved.</p>
+  </footer>
+
+  <script>
+    async function verifyCode() {
+      const codeInput = document.getElementById("verifyCode");
+      const resultBox = document.getElementById("resultBox");
+      const code = codeInput.value.trim().toUpperCase();
+
+      if (!code) {
+        resultBox.className = "result error show";
+        resultBox.innerHTML = `
+          <strong>Status:</strong> Error<br>
+          <strong>Message:</strong> Please enter a verification code.
+        `;
+        return;
+      }
+
+      resultBox.className = "result show";
+      resultBox.innerHTML = `
+        <strong>Status:</strong> Checking<br>
+        <strong>Message:</strong> Verifying your code...
+      `;
+
+      try {
+        const response = await fetch("/api/verify", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ code })
+        });
+
+        const data = await response.json().catch(() => ({
+          ok: false,
+          message: "Invalid server response."
+        }));
+
+        if (response.ok && data.ok) {
+          resultBox.className = "result success show";
+          resultBox.innerHTML = `
+            <strong>Code:</strong> ${data.code}<br>
+            <strong>Status:</strong> Verified<br>
+            <strong>Message:</strong> ${data.message}<br>
+            <strong>Last Verified:</strong> ${data.lastUsedAt || "Not available"}<br>
+            <strong>Usage Count:</strong> ${data.used ?? "Not available"}
+          `;
+        } else {
+          resultBox.className = "result error show";
+          resultBox.innerHTML = `
+            <strong>Status:</strong> Invalid<br>
+            <strong>Message:</strong> ${data.message || "Unable to verify this code."}
+          `;
+        }
+      } catch (error) {
+        resultBox.className = "result error show";
+        resultBox.innerHTML = `
+          <strong>Status:</strong> Error<br>
+          <strong>Message:</strong> Unable to connect to the verification service.
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
