@@ -369,6 +369,12 @@
   </footer>
 
   <script>
+    const urlCode = new URLSearchParams(window.location.search).get("code");
+
+    if (urlCode) {
+      document.getElementById("verifyCode").value = urlCode.trim().toUpperCase();
+    }
+
     async function verifyCode() {
       const codeInput = document.getElementById("verifyCode");
       const resultBox = document.getElementById("resultBox");
@@ -430,3 +436,4 @@
   </script>
 </body>
 </html>
+
