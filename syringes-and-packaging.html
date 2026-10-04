@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syringes &amp; Packaging Guide - Bluerexall</title>
+  <meta name="description" content="A visual guide to Bluerexall syringe appearance, packaging variations, and the official product code verification page.">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #eef4ff, #f8fbff);
+      color: #1b2b45;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
+      padding: 24px 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #fff;
+      font-weight: 500;
+      opacity: 0.95;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #cfe8ff;
+    }
+
+    .nav-links a[aria-current="page"] {
+      color: #ffffff;
+      font-weight: 700;
+      border-bottom: 2px solid #ffffff;
+      padding-bottom: 2px;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      background: linear-gradient(135deg, #0d3b66 0%, #1d6fb8 100%);
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: auto;
+      font-size: 1.08rem;
+      opacity: 0.95;
+    }
+
+
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.25; }
+    .guide-section { padding: 64px 0 0; }
+    .guide-section h2 { color: #0d3b66; font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 16px; }
+    .guide-section p { color: #33415c; margin-bottom: 16px; }
+    .guide-intro { max-width: 800px; }
+    .guide-figure { background: #fff; margin: 28px 0 0; border: 1px solid #e0e9f4; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(13,59,102,.08); }
+    .guide-figure img { display: block; width: 100%; height: auto; }
+    .guide-figure figcaption { padding: 20px 24px; color: #4e5d78; border-top: 1px solid #e8eef7; font-size: .93rem; }
+    .guide-figure a { color: #0d3b66; text-decoration: underline; text-underline-offset: 4px; }
+    .variation-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 24px 0; }
+    .guide-card { background: #fff; padding: 28px 24px; border-radius: 18px; border: 1px solid #e0e9f4; box-shadow: 0 10px 28px rgba(13,59,102,.07); }
+    .guide-card h3 { color: #0d3b66; font-size: 1.15rem; margin-bottom: 12px; }
+    .guide-card p { margin-bottom: 0; }
+    .appearance-note { padding: 24px; background: #e8f2ff; border-left: 4px solid #14508a; border-radius: 0 12px 12px 0; }
+    .appearance-note p { margin: 0; }
+    .packaging-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+    .packaging-placeholder { min-height: 240px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 32px; border: 2px dashed #b2c7df; background: #f8fbff; border-radius: 18px; }
+    .packaging-placeholder strong { color: #0d3b66; font-size: 1.2rem; }
+    .packaging-placeholder p { max-width: 300px; margin: 12px 0 0; }
+    .verification-box { background: linear-gradient(135deg,#0d3b66,#14508a); color: #fff; padding: 44px 32px; border-radius: 24px; text-align: center; }
+    .verification-box h2, .verification-box p { color: #fff; }
+    .verification-box p { max-width: 760px; margin: 0 auto 20px; }
+    .guide-button { display: inline-block; padding: 14px 24px; border-radius: 12px; background: #fff; color: #0d3b66; font-weight: 600; }
+    .guide-button:hover { background: #eaf4ff; }
+    .support-link { display: block; margin-top: 18px; color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+    footer { background: #0b2744; color: #dce8f7; text-align: center; padding: 28px 15px; margin-top: 70px; }
+    footer p + p { margin-top: 8px; }
+    a:focus-visible { outline: 3px solid #3da5d9; outline-offset: 5px; }
+    .skip-link { position: absolute; top: -100px; left: 16px; background: #fff; color: #0d3b66; padding: 12px; z-index: 2000; }
+    .skip-link:focus { top: 12px; }
+    @media (max-width: 900px) { .variation-grid { grid-template-columns: 1fr; } .packaging-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) {
+      .nav, .nav-links { justify-content: center; text-align: center; }
+      .hero { padding: 56px 0 44px; }
+      .guide-section { padding-top: 40px; }
+      .guide-card, .appearance-note, .guide-figure figcaption { padding: 20px; }
+      .verification-box { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div class="logo">Bluerexall</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="serial-codes-validator.html">Validator</a>
+        <a href="syringes-and-packaging.html" aria-current="page">Packaging</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="hero" aria-labelledby="guide-title">
+      <div class="container">
+        <h1 id="guide-title">Syringes &amp; Packaging Guide</h1>
+        <p>A visual reference for syringe appearance, packaging information, and product code verification.</p>
+      </div>
+    </section>
+    <section class="guide-section" aria-labelledby="syringes-title">
+      <div class="container">
+        <div class="guide-intro">
+          <h2 id="syringes-title">Syringe Appearance</h2>
+          <p>This guide illustrates syringe styles associated with Bluerexall product packaging. The examples show differences in cap appearance and printed markings; they do not specify the contents of every product or packaging series.</p>
+        </div>
+        <figure class="guide-figure">
+          <img src="images/bluerexall-peptide-syringe-guide.png" alt="Illustrative Bluerexall guide showing five syringe examples with clear, black and gray caps, including examples with printed markings." width="1368" height="1149" fetchpriority="high" decoding="async">
+          <figcaption>Illustrative appearance guide. Type labels are visual references, not product specifications. Printed markings in this artwork are not a measurement or dosing reference. <a href="images/bluerexall-peptide-syringe-guide.png" target="_blank" rel="noopener">View full-size image (opens in a new tab)</a>.</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="guide-section" aria-labelledby="variations-title">
+      <div class="container">
+        <h2 id="variations-title">Understanding Visual Differences</h2>
+        <div class="variation-grid">
+          <article class="guide-card"><h3>Cap Appearance</h3><p>Cap color, shape, or style may differ between packaging series. A clear, black, or gray cap alone does not determine authenticity.</p></article>
+          <article class="guide-card"><h3>Printed Markings</h3><p>The presence, layout, or appearance of graduation markings may vary. The illustration should not be used to infer capacity, dosing, or technical specifications.</p></article>
+          <article class="guide-card"><h3>Packaging Series</h3><p>Visual details may change between packaging series. Compare the information supplied with your specific product and use the official verification route if you have questions.</p></article>
+        </div>
+        <aside class="appearance-note" aria-label="Appearance and authenticity"><p><strong>Appearance alone is not an authenticity check.</strong> Differences in caps, markings, or packaging do not, by themselves, establish that a product is authentic or counterfeit.</p></aside>
+      </div>
+    </section>
+    <section class="guide-section" id="packaging-information" aria-labelledby="packaging-title">
+      <div class="container packaging-grid">
+        <div>
+          <h2 id="packaging-title">Packaging Information</h2>
+          <p>A box photograph and product-specific packaging description will be added here when they are available.</p>
+          <p>Until then, refer to the label and information supplied with your product. Box appearance, included items, and specifications are not confirmed by the syringe illustration.</p>
+        </div>
+        <!-- Replace this placeholder with the supplied box photograph and a verified description when available. -->
+        <div class="packaging-placeholder"><strong>Box photo coming soon</strong><p>Product-specific box details will appear here with the photograph.</p></div>
+      </div>
+    </section>
+    <section class="guide-section" aria-labelledby="verification-title">
+      <div class="container verification-box">
+        <h2 id="verification-title">Use the Official Verification Page</h2>
+        <p>For authenticity checks, open the Bluerexall Serial Codes Validator from this site and enter the verification code exactly as printed on your packaging. Review the result there rather than relying on appearance alone.</p>
+        <a class="guide-button" href="serial-codes-validator.html">Verify Product Code</a>
+        <a class="support-link" href="contact.html">Contact Bluerexall with packaging questions</a>
+      </div>
+    </section>
+  </main>
+  <footer><p>© 2026 Bluerexall. All rights reserved.</p><p><a href="syringes-and-packaging.html" aria-current="page" style="color: #dce8f7; text-decoration: underline; text-underline-offset: 4px;">Syringes &amp; Packaging Guide</a></p></footer>
+</body>
+</html>
