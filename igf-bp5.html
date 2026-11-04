@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>IGF-BP5 | Bluerexall</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0b0f19, #121a29);
+      color: #f3f6fb;
+      line-height: 1.7;
+    }
+
+    header.site-header {
+      background: linear-gradient(135deg, #0d3b66, #14508a);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 22px 0;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      font-weight: 500;
+      text-decoration: none;
+      opacity: 0.95;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #cfe8ff;
+    }
+
+    .page-hero {
+      text-align: center;
+      padding: 30px 20px 34px;
+    }
+
+    .page-hero h1 {
+      margin: 0;
+      font-size: 36px;
+      color: #ffffff;
+    }
+
+    .page-hero p {
+      color: #d8e5f3;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .page-wrap {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .gallery-box,
+    .info-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .gallery-title,
+    .info-box h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #ffffff;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 14px;
+      transition: 0.3s ease;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #0f1724;
+      display: block;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .info-box p {
+      color: #d7dfeb;
+      margin-bottom: 18px;
+      font-size: 15.5px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(61, 165, 217, 0.14);
+      color: #8dd8ff;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 20px;
+      background: #111827;
+      margin-top: 40px;
+      color: #aab4c4;
+      font-size: 15px;
+    }
+
+    footer a {
+      color: #8dd8ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .page-hero h1 {
+        font-size: 30px;
+      }
+
+      .gallery-title,
+      .info-box h2 {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-wrap {
+        margin: 25px auto;
+        padding: 0 14px;
+      }
+
+      .gallery-box,
+      .info-box {
+        padding: 18px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .page-hero {
+        padding: 24px 15px 28px;
+      }
+
+      .page-hero h1 {
+        font-size: 26px;
+      }
+
+      .page-hero p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="logo">Bluerexall</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="serial-codes-validator.html" aria-current="page">Validator</a>
+        <a href="syringes-and-packaging.html">Packaging</a>
+      </nav>
+    </div>
+
+    <div class="page-hero">
+      <h1>IGF-BP5</h1>
+      <p>Research Use Only - Biotechnology Peptide</p>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="product-layout">
+
+      <section class="gallery-box">
+        <h2 class="gallery-title">Product Gallery</h2>
+        <div class="gallery">
+          <img src="images/igf-bp5/front.png" alt="IGF-BP5 front view">
+          <img src="images/igf-bp5/back.png" alt="IGF-BP5 back view">
+          <img src="images/igf-bp5/front-side.png" alt="IGF-BP5 front side view">
+          <img src="images/igf-bp5/side-back.png" alt="IGF-BP5 side back view">
+          <img src="images/igf-bp5/unbox.png" alt="IGF-BP5 unboxing view">
+        </div>
+      </section>
+
+      <section class="info-box">
+        <span class="badge">Research Biomolecule</span>
+        <h2>IGF-BP5 | Explore How Cells Respond to Growth Signals</h2>
+        <p>Bluerexall presents IGF-BP5 for research into the insulin-like growth factor system. A growth factor can be present around a cell, yet its effect depends in part on how much of it can reach a receptor. Insulin-like growth factor-binding protein 5, known in scientific literature as IGFBP-5, binds both IGF-1 and IGF-2. Those interactions make it a useful subject for studying how the local environment changes the way cells respond to growth signals.</p>
+
+        <h3>How IGF-BP5 shapes growth factor activity</h3>
+        <p>The extracellular matrix is the network of proteins and other materials that surrounds cells. In a study of cultured human fibroblasts, researchers found that IGFBP-5 associated with this matrix. In that setting, it bound IGF-1 less tightly than it did in solution and enhanced the cells' growth response to IGF-1. When IGFBP-5 was present only in the culture medium, much of it broke down into a fragment, and the same enhancement was absent. The experiment shows how the location and stability of a binding protein can influence the effect of a growth factor under specific laboratory conditions. <a href="https://pubmed.ncbi.nlm.nih.gov/7683690/">Read the extracellular matrix study</a>.</p>
+
+        <h3>The connection to Long R3 IGF-1</h3>
+        <p>Long R3 IGF-1 and IGF-BP5 give researchers two ways to investigate the same signaling system. Long R3 IGF-1 is a modified form of IGF-1 with lower affinity for several IGF-binding proteins than native IGF-1. Comparing how cells respond to the two forms helps researchers explore how strongly binding proteins influence growth factor activity. IGF-BP5 brings the binding protein itself into focus. It lets researchers ask how the growth factor's surroundings influence the amount available to cells. The connection between LR3 and BP5 is the interaction between growth factors and the proteins that bind them. <a href="https://pubmed.ncbi.nlm.nih.gov/7683526/">Read the Long R3 IGF-1 study</a>.</p>
+
+        <h3>Why IGF-BP5 matters in muscle research</h3>
+        <p>Muscle precursor cells go through a process called differentiation, during which they acquire the characteristics of muscle cells. In experiments with mouse muscle cells, reducing IGFBP-5 impaired differentiation and lowered IGF-2 expression. Under the study conditions, adding IGFBP-5 with a low concentration of IGF-2 helped restore differentiation. The researchers linked this response to a feedback mechanism in which IGF-2 signaling stimulates further IGF-2 expression. These findings provide a way to investigate how muscle cells develop and how local binding proteins influence that process. <a href="https://pubmed.ncbi.nlm.nih.gov/18762576/">Read the muscle cell study</a>.</p>
+
+        <h3>What the research says about muscle size</h3>
+        <p>Muscle cell differentiation and muscle hypertrophy describe different processes. Differentiation is how precursor cells acquire muscle cell characteristics. Hypertrophy refers to the enlargement of existing muscle fibers. The mouse cell study examined differentiation in culture. Whether taking or injecting IGF-BP5 increases muscle mass or strength in people remains unestablished. Its relevance to muscle research lies in the questions it helps researchers investigate, including how cells respond to IGF-2 as they develop.</p>
+
+        <p>For research use only.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    Contact: <a href="mailto:info.bluerexall@gmail.com">info.bluerexall@gmail.com</a>
+    <p><a href="syringes-and-packaging.html" style="color: #dce8f7; text-decoration: underline; text-underline-offset: 4px;">Syringes &amp; Packaging Guide</a></p>
+  </footer>
+
+</body>
+</html>
